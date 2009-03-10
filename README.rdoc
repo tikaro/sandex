@@ -1,0 +1,7 @@
+= sandex
+
+Calculates how awesome your weather is, compared to the current weather in San Diego.  The highest possible score is 100%.  Used to answer the question: "Is it nice enough to work outside today?"
+
+== Copyright
+
+Copyright (c) 2009 John Young. See LICENSE for details.
