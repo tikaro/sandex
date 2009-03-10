@@ -1,6 +1,39 @@
 = sandex
 
-Calculates how awesome your weather is, compared to the current weather in San Diego.  The highest possible score is 100%.  Used to answer the question: "Is it nice enough to work outside today?"
+* http://github.com/tikaro/sandex
+
+== Description
+
+Sandex calculates how awesome your weather is, compared to the current weather in San Diego.  The highest possible score is 100%.
+
+The Sandex score is used to answer the question: "Is it nice enough to work outside today?"  A high Sandex score means yes, it is nice enough to work outside today.
+
+Currently, this is really a wrapper around outoftime's NOAA gem (thanks!)
+
+== Features
+
+- Given a NOAA station ID, calculate the sandex
+- Right now, the sandex is merely 100% MINUS one percent for every degree difference (positive or negative) between your station and San Diego.
+- Defaults to station KILG, near West Chester, Pennsilvania.
+
+== Requirements
+
+- libxml-ruby >= 0.9.7
+- andre-geokit >= 1.2.0
+- outoftime-noaa >= 0.2.2
+
+== Installation
+
+  sudo gem sources --add http://gems.github.com (only if you haven't done this before)
+  sudo gem install tikaro-sandex
+
+== Usage
+
+# Get the current sandex score for your location
+sandex = Sandex.calculate(station_id)
+== Contact
+
+John Young (john@tikaro.net)
 
 == Copyright
 
