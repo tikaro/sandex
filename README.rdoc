@@ -4,7 +4,7 @@
 
 == Description
 
-The sandex is an index of awesome your weather is, compared to the current weather in San Diego, CA.  The highest possible sandex is 100%.
+The sandex is an index of awesome your weather is, compared to the theoretically-perfect weather in San Diego, CA.  The highest possible sandex is 100%.
 
 This score is used to answer the question: "Is it nice enough to work outside today?"  If the sandex is high, yes: go work outside. That's because EVERY day is a work-outside day in San Diego.
 
@@ -13,8 +13,9 @@ Thanks to @r38y for the concept and the name.
 == Features
 
 - Given a NOAA station ID, calculate the sandex.
-- Currently, the sandex is a stub: 100% MINUS one percent for every degree difference (positive or negative) between your station and KSAN in San Diego.
-- Defaults to station KILG, near West Chester, Pennsilvania.
+- Using the work of professor Ole Fanger, determine whether the temperature and relative humidity fall inside parameters for thermal comfort:
+-- is the relative humidity below 60%?
+-- is the temperature above minimum, but below maximum parameters?
 
 == Requirements
 
@@ -32,7 +33,7 @@ Note that the NOAA gem has some separate install requirements, and must update i
 == Usage
 
 Get the current sandex score for your location:
-Sandex.calculate(station_id)
+Sandex.calculate(station_id, "verbose")
 
 == Contact
 
