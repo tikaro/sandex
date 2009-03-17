@@ -5,7 +5,7 @@ module FangerBox
   
   def self.acceptable?(t,rh)
     # I tried writing this as A < B < C, but it didn't work.  Huh.
-    t > minimum_temperature_at_humidity(rh) && t < maximum_temperature_at_humidity(rh)
+    rh <= HIGHEST_ALLOWABLE_HUMIDITY && t >= minimum_temperature_at_humidity(rh) && t <= maximum_temperature_at_humidity(rh)
   end
   
   def self.rh_acceptable?(rh)
