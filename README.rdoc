@@ -23,11 +23,23 @@ Thanks to @r38y for the concept and the name.
 - andre-geokit >= 1.2.0
 - outoftime-noaa >= 0.2.2
 
+You can install the latter two by first ensuring you have Github added to your gem sources:
+
+* sudo gem sources --add http://gems.github.com (only if you haven't done this once before)
+
+And then installing them like so:
+
+* sudo gem install andre-geokit
+* sudo gem install outoftime-noaa
+
+The NOAA gem has some separate install requirements, and must update its station list. So after you install it, make sure you:
+
+* sudo noaa-update-stations
+
 == Installation
 
-Note that the NOAA gem has some separate install requirements, and must update its station list.  Once I get that figured out, I'll add that here.
+To install this gem, after the aforementioned requirements:
 
-* sudo gem sources --add http://gems.github.com (only if you haven't done this before)
 * sudo gem install tikaro-sandex
 
 == Usage
