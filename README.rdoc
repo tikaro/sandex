@@ -45,7 +45,9 @@ To install this gem, after the aforementioned requirements:
 == Usage
 
 Get the current sandex score for your location:
-Sandex.calculate(station_id, "verbose")
+Sandex.calculate_for_station(station_id)
+
+Where station_id is the 4 letter NOAA station code for the location you wish to look up. The NOAA gem doesn't currently provide a way to list out the stations, so your best bet is to Google for it.
 
 == Contact
 
