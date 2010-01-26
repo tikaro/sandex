@@ -3,6 +3,16 @@ module FangerBox
   LOWEST_ALLOWABLE_HUMIDITY  = 0
   HIGHEST_ALLOWABLE_HUMIDITY = 60
   
+  def self.chart(t,rh)
+   chart_path = GChart.scatter(
+     :data => [[rh],[t],[5]],
+     :title=> "Sandex",
+     :width => 400,
+     :height => 400,
+     :axis_labels => ['Jan|July|Jan|July|Jan']
+   ).to_url
+  end
+  
   def self.acceptable?(t,rh)
     # I tried writing this as A < B < C, but it didn't work.  Huh.
     rh <= HIGHEST_ALLOWABLE_HUMIDITY && t >= minimum_temperature_at_humidity(rh) && t <= maximum_temperature_at_humidity(rh)
