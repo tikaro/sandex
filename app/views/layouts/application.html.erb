@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Sandex</title>
+  <title>The Sandex for <%= @location unless @location.blank? %></title>
+  <%= favicon_link_tag 'wifir.ico' %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -12,7 +13,14 @@
 
 <%= yield %>
 
-<div id="wifir"><%= link_to image_tag("wifir.png"), "http://www.coworkout.com" %></div>
+<div id="wifir">
+  <%= link_to image_tag("wifir.png"), "http://www.coworkout.com" %>
+  <p>See: 
+    <%= link_to "West Chester, PA", "/?loc=West+Chester,+PA&lat=39.9606&lon=-75.6058" %> |
+    <%= link_to "San Diego, CA", "/?loc=San+Diego,+CA&lat=32.7153&lon=-117.1564" %>
+  </p>
+  <p><%= link_to "What is the Sandex?", "http://coworkout.com/2009/03/14/the-sandex-and-the-fanger-box/" %>
+</div>
 
 <div id="footer">
   Made by <a href="http://www.tikaro.net">tikaro</a>
