@@ -1,0 +1,29 @@
+$bright-green: #00CC00;
+$forest-green: #009A00;
+
+.sandex_true {
+  background: $bright-green;
+  font-weight: bold;
+  .sandex_temperature_true {
+    color: #000;
+  }
+  .sandex_humidity_true {
+    color: #000;
+  }
+}
+.sandex_false {
+
+}
+
+.sandex_temperature_true {
+  color: $forest-green;
+}
+.sandex_temperature_false {
+
+}
+
+.sandex_humidity_true {
+  color: $forest-green;
+}
+.sandex_humidity_false {
+}

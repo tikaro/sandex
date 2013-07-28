@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sandex</title>
+  <title>The Sandex</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="//use.typekit.net/mjv7cjw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
 
 <%= yield %>
 
+<div id="wifir"><%= link_to image_tag("wifir.png"), "http://www.coworkout.com" %></div>
+
+<div id="footer">
+  Made by <a href="http://www.tikaro.net">tikaro</a>
+  to help with <a href="http://www.coworkout.com">coworkout</a>.
+  Powered by <a href="http://forecast.io/">forecast.io</a>
+</div>
 </body>
 </html>
