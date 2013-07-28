@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Sandex for <%= @location unless @location.blank? %></title>
+  <title>Sandex forecast for <%= @location %></title>
   <%= favicon_link_tag 'wifir.ico' %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -15,16 +15,19 @@
 
 <div id="wifir">
   <%= link_to image_tag("wifir.png"), "http://www.coworkout.com" %>
-  <p>See: 
-    <%= link_to "West Chester, PA", "/?loc=West+Chester,+PA&lat=39.9606&lon=-75.6058" %> |
-    <%= link_to "San Diego, CA", "/?loc=San+Diego,+CA&lat=32.7153&lon=-117.1564" %>
+  <p>
+    <%= link_to "West Chester", "/?loc=West+Chester,+PA&lat=39.9606&lon=-75.6058" %> |
+    <%= link_to "Philly", "/?loc=Philadelphia,+PA&lat=39.9522&lon=-75.1642" %> |
+    <%= link_to "NYC", "/?loc=New+York,+NY&lat=40.7142&lon=-74.0064" %> |
+    <%= link_to "Austin", "/?loc=Austin,+TX&lat=30.2669&lon=-97.7428" %> |
+    <%= link_to "San Diego", "/?loc=San+Diego,+CA&lat=32.7153&lon=-117.1564" %>
   </p>
   <p><%= link_to "What is the Sandex?", "http://coworkout.com/2009/03/14/the-sandex-and-the-fanger-box/" %>
 </div>
 
 <div id="footer">
   Made by <a href="http://www.tikaro.net">tikaro</a>
-  to help with <a href="http://www.coworkout.com">coworkout</a>.
+  to help plan <a href="http://www.coworkout.com">coworkout</a>.
   Powered by <a href="http://forecast.io/">forecast.io</a>
 </div>
 </body>
