@@ -22,4 +22,16 @@ module ApplicationHelper
       "sandex_humidity_false"
     end
   end
+
+  def forecast_time(forecast_time)
+    day = Time.at(forecast_time).to_datetime.in_time_zone('Eastern Time (US & Canada)')
+    time = Time.at(forecast_time).to_datetime.in_time_zone('Eastern Time (US & Canada)').strftime"%l%p"
+    if day.to_date == Date.today
+      "#{time} today"
+    elsif day.to_date == DateTime.now.to_date.tomorrow
+      "#{time} tomorrow"
+    else
+      "#{time} #{day.strftime"%A"}"
+    end
+  end
 end
