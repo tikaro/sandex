@@ -12,17 +12,5 @@ class WelcomeController < ApplicationController
 
     @hours = @forecast.hourly.data
 
-    #forecast.hourly.data.each do |hour|
-    #  forecast_time = Time.at(hour.time).to_datetime.strftime"%A %l%p"
-    #  forecast_temperature = hour.temperature.round
-    #  forecast_humidity = (100*(hour.humidity)).round
-    #  if forecast_temperature.between?(69,82) && forecast_humidity.between?(30,60)
-    ##    puts "============ Sandex 100% ================"
-     # end
-     # puts "#{forecast_time}: #{forecast_temperature.round}°F, #{forecast_humidity}% humidity."
-    #end
-
-    
-
   end
 end

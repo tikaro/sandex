@@ -1,26 +1,19 @@
 module ApplicationHelper
+
   def sandex_class(temperature, humidity)
-    if temperature.between?(69,82) && humidity.between?(0.30,0.60)
+    if humidity.between?(0.3,0.6) && temperature.between?(temperature_lower_bound(humidity),temperature_upper_bound(humidity))
       "sandex_true"
     else
       "sandex_false"
     end
   end
 
-  def sandex_temperature_class(temperature)
-    if temperature.between?(69,82)
-      "sandex_temperature_true"
-    else
-      "sandex_temperature_false"
-    end
+  def temperature_lower_bound(humidity)
+    (-3.3333333*humidity)+70
   end
 
-  def sandex_humidity_class(humidity)
-    if humidity.between?(0.30,0.60)
-      "sandex_humidity_true"
-    else
-      "sandex_humidity_false"
-    end
+  def temperature_upper_bound(humidity)
+    (-13.3333333*humidity)+86
   end
 
   def forecast_time(forecast_time)
