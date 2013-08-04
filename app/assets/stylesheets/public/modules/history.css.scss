@@ -1,0 +1,23 @@
+// Place all the styles related to the history controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#history {
+  width: 600px;
+  margin: 0 auto;
+}
+#history ul {
+  list-style-type:none;
+  margin:0px;
+  padding:0px;
+  li {
+  color: #ccc;
+  display: inline-block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  }
+}
+

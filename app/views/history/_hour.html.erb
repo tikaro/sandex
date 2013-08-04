@@ -1,0 +1,1 @@
+<li class="<%= sandex_classes(hour.temperature, hour.humidity) %>"><abbr title="<%= "#{Time.at(hour.time).to_datetime.strftime("%a, %b %d")} #{hour.temperature.round}°F #{hour.humidity}% humidity" %>"><%= short_hour(hour.time) %></abbr></li>
