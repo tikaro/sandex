@@ -60,7 +60,8 @@ module Sandex
     config.assets.version = '1.0'
 
     ForecastIO.configure do |configuration|
-      configuration.api_key = 'c9347fa8676b53635fc1ed28f4d43d46'
+      configuration.api_key        = 'c9347fa8676b53635fc1ed28f4d43d46'
+      configuration.default_params = { exclude: "minutely,daily,alerts,flags" }
     end
   end
 end

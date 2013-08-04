@@ -1,4 +1,4 @@
 <p class="<%= sandex_class(hour.temperature, hour.humidity) %>">
-  <%= forecast_time(hour.time) %>:
+  <%= short_time(hour.time) %>:
   <%=  hour.temperature.round %>&deg;F,
   <%= (100*(hour.humidity)).round %>% humidity</p>

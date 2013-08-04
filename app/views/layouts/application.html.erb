@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sandex forecast for <%= @location %></title>
+  <title><%=h yield(:title) %></title>
   <%= favicon_link_tag 'wifir.ico' %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
