@@ -4,6 +4,8 @@ _"Will the weather be perfect anytime in the next couple of days?"_
 
 The Sandex is the index of how the weather in West Chester, PA compares to the theoretically-perfect weather in San Diego, California in the next couple of days.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2b0386c1-28fc-4dc3-bccc-50578e189008/deploy-status)](https://app.netlify.com/sites/sandex/deploys)
+
 ## Background
 
 "Room Temperature" was invented by professor Ole Fanger. [Here's a PDF link](http://ceae.colorado.edu/~brandem/aren3050/docs/ThermalComfort.pdf) where you can read about it.
@@ -27,7 +29,13 @@ Feel free to contact John with any questions or ridicule at `john.young@gmail.co
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Available Scripts
+## It is Deployed via Netlify
+
+Every push to the `main` branch results in a Netlify deployment to https://sandex.netlify.app 
+
+If you have access to John's Netlify team, you can access the Netlify build at [app.netlify.com/sites/sandex](https://app.netlify.com/sites/sandex/overview)
+
+### Local Scripts
 
 In the project directory, you can run:
 
