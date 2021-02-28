@@ -1,0 +1,877 @@
+{
+    "data": {
+        "timelines": [
+            {
+                "timestep": "1h",
+                "startTime": "2021-02-28T21:12:00Z",
+                "endTime": "2021-03-05T08:12:00Z",
+                "intervals": [
+                    {
+                        "startTime": "2021-02-28T21:12:00Z",
+                        "values": {
+                            "temperature": 41,
+                            "humidity": 93,
+                            "dewPoint": 39.16
+                        }
+                    },
+                    {
+                        "startTime": "2021-02-28T22:12:00Z",
+                        "values": {
+                            "temperature": 40.3,
+                            "humidity": 97.51,
+                            "dewPoint": 39.94
+                        }
+                    },
+                    {
+                        "startTime": "2021-02-28T23:12:00Z",
+                        "values": {
+                            "temperature": 40.33,
+                            "humidity": 98.14,
+                            "dewPoint": 40.19
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T00:12:00Z",
+                        "values": {
+                            "temperature": 40.42,
+                            "humidity": 98.16,
+                            "dewPoint": 40.26
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T01:12:00Z",
+                        "values": {
+                            "temperature": 40.53,
+                            "humidity": 98.72,
+                            "dewPoint": 40.46
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T02:12:00Z",
+                        "values": {
+                            "temperature": 40.53,
+                            "humidity": 99.1,
+                            "dewPoint": 40.5
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T03:12:00Z",
+                        "values": {
+                            "temperature": 40.5,
+                            "humidity": 99.24,
+                            "dewPoint": 40.46
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T04:12:00Z",
+                        "values": {
+                            "temperature": 40.5,
+                            "humidity": 99.21,
+                            "dewPoint": 40.42
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T05:12:00Z",
+                        "values": {
+                            "temperature": 40.77,
+                            "humidity": 98.74,
+                            "dewPoint": 40.64
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T06:12:00Z",
+                        "values": {
+                            "temperature": 40.86,
+                            "humidity": 98.85,
+                            "dewPoint": 40.78
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T07:12:00Z",
+                        "values": {
+                            "temperature": 40.95,
+                            "humidity": 98.75,
+                            "dewPoint": 40.87
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T08:12:00Z",
+                        "values": {
+                            "temperature": 41.16,
+                            "humidity": 98.9,
+                            "dewPoint": 41.07
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T09:12:00Z",
+                        "values": {
+                            "temperature": 41.67,
+                            "humidity": 98.16,
+                            "dewPoint": 41.58
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T10:12:00Z",
+                        "values": {
+                            "temperature": 41.74,
+                            "humidity": 98.1,
+                            "dewPoint": 41.58
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T11:12:00Z",
+                        "values": {
+                            "temperature": 43.79,
+                            "humidity": 96.17,
+                            "dewPoint": 43.52
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T12:12:00Z",
+                        "values": {
+                            "temperature": 45.66,
+                            "humidity": 94.25,
+                            "dewPoint": 45.27
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T13:12:00Z",
+                        "values": {
+                            "temperature": 48.25,
+                            "humidity": 95.89,
+                            "dewPoint": 47.75
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T14:12:00Z",
+                        "values": {
+                            "temperature": 50.67,
+                            "humidity": 95.7,
+                            "dewPoint": 49.62
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T15:12:00Z",
+                        "values": {
+                            "temperature": 52.29,
+                            "humidity": 90.71,
+                            "dewPoint": 49.89
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T16:12:00Z",
+                        "values": {
+                            "temperature": 50.43,
+                            "humidity": 86.62,
+                            "dewPoint": 46.47
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T17:12:00Z",
+                        "values": {
+                            "temperature": 49.77,
+                            "humidity": 68.32,
+                            "dewPoint": 39.74
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T18:12:00Z",
+                        "values": {
+                            "temperature": 48.54,
+                            "humidity": 62.81,
+                            "dewPoint": 36.43
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T19:12:00Z",
+                        "values": {
+                            "temperature": 49.35,
+                            "humidity": 53.86,
+                            "dewPoint": 33.28
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T20:12:00Z",
+                        "values": {
+                            "temperature": 48.92,
+                            "humidity": 44.7,
+                            "dewPoint": 28.36
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T21:12:00Z",
+                        "values": {
+                            "temperature": 46.47,
+                            "humidity": 42.37,
+                            "dewPoint": 24.85
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T22:12:00Z",
+                        "values": {
+                            "temperature": 43.27,
+                            "humidity": 43.1,
+                            "dewPoint": 22.35
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-01T23:12:00Z",
+                        "values": {
+                            "temperature": 40.35,
+                            "humidity": 43.52,
+                            "dewPoint": 19.92
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T00:12:00Z",
+                        "values": {
+                            "temperature": 38.16,
+                            "humidity": 45.42,
+                            "dewPoint": 18.91
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T01:12:00Z",
+                        "values": {
+                            "temperature": 36.52,
+                            "humidity": 46.81,
+                            "dewPoint": 18.12
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T02:12:00Z",
+                        "values": {
+                            "temperature": 35.01,
+                            "humidity": 46.68,
+                            "dewPoint": 16.66
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T03:12:00Z",
+                        "values": {
+                            "temperature": 33.3,
+                            "humidity": 45.62,
+                            "dewPoint": 14.58
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T04:12:00Z",
+                        "values": {
+                            "temperature": 30.63,
+                            "humidity": 44.48,
+                            "dewPoint": 11.57
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T05:12:00Z",
+                        "values": {
+                            "temperature": 27.46,
+                            "humidity": 43.07,
+                            "dewPoint": 7.95
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T06:12:00Z",
+                        "values": {
+                            "temperature": 24.22,
+                            "humidity": 40.96,
+                            "dewPoint": 3.9
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T07:12:00Z",
+                        "values": {
+                            "temperature": 21.88,
+                            "humidity": 39.28,
+                            "dewPoint": 0.88
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T08:12:00Z",
+                        "values": {
+                            "temperature": 20.57,
+                            "humidity": 40.79,
+                            "dewPoint": 0.5
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T09:12:00Z",
+                        "values": {
+                            "temperature": 20.05,
+                            "humidity": 43.05,
+                            "dewPoint": 1.17
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T10:12:00Z",
+                        "values": {
+                            "temperature": 19.67,
+                            "humidity": 44.69,
+                            "dewPoint": 1.65
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T11:12:00Z",
+                        "values": {
+                            "temperature": 19.29,
+                            "humidity": 45.15,
+                            "dewPoint": 1.51
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T12:12:00Z",
+                        "values": {
+                            "temperature": 19.38,
+                            "humidity": 44.71,
+                            "dewPoint": 1.38
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T13:12:00Z",
+                        "values": {
+                            "temperature": 20.82,
+                            "humidity": 42.66,
+                            "dewPoint": 1.69
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T14:12:00Z",
+                        "values": {
+                            "temperature": 22.91,
+                            "humidity": 39.46,
+                            "dewPoint": 1.9
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T15:12:00Z",
+                        "values": {
+                            "temperature": 25.52,
+                            "humidity": 36.29,
+                            "dewPoint": 2.44
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T16:12:00Z",
+                        "values": {
+                            "temperature": 28.2,
+                            "humidity": 33.94,
+                            "dewPoint": 3.4
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T17:12:00Z",
+                        "values": {
+                            "temperature": 30.74,
+                            "humidity": 32.56,
+                            "dewPoint": 4.75
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T18:12:00Z",
+                        "values": {
+                            "temperature": 32.79,
+                            "humidity": 31.62,
+                            "dewPoint": 5.94
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T19:12:00Z",
+                        "values": {
+                            "temperature": 34.14,
+                            "humidity": 31.5,
+                            "dewPoint": 7.02
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T20:12:00Z",
+                        "values": {
+                            "temperature": 34.7,
+                            "humidity": 32.32,
+                            "dewPoint": 8.1
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T21:12:00Z",
+                        "values": {
+                            "temperature": 34.47,
+                            "humidity": 34.51,
+                            "dewPoint": 9.3
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T22:12:00Z",
+                        "values": {
+                            "temperature": 32.83,
+                            "humidity": 41.15,
+                            "dewPoint": 11.68
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-02T23:12:00Z",
+                        "values": {
+                            "temperature": 29.48,
+                            "humidity": 50.96,
+                            "dewPoint": 13.57
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T00:12:00Z",
+                        "values": {
+                            "temperature": 28.04,
+                            "humidity": 51.99,
+                            "dewPoint": 12.7
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T01:12:00Z",
+                        "values": {
+                            "temperature": 27.37,
+                            "humidity": 52.08,
+                            "dewPoint": 12.11
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T02:12:00Z",
+                        "values": {
+                            "temperature": 26.82,
+                            "humidity": 54.75,
+                            "dewPoint": 12.72
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T03:12:00Z",
+                        "values": {
+                            "temperature": 26.78,
+                            "humidity": 55.62,
+                            "dewPoint": 13.05
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T04:12:00Z",
+                        "values": {
+                            "temperature": 27.03,
+                            "humidity": 60.2,
+                            "dewPoint": 15.06
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T05:12:00Z",
+                        "values": {
+                            "temperature": 27.25,
+                            "humidity": 65.08,
+                            "dewPoint": 17.08
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T06:12:00Z",
+                        "values": {
+                            "temperature": 27.46,
+                            "humidity": 67.59,
+                            "dewPoint": 18.18
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T07:12:00Z",
+                        "values": {
+                            "temperature": 27.52,
+                            "humidity": 70.27,
+                            "dewPoint": 19.13
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T08:12:00Z",
+                        "values": {
+                            "temperature": 27.64,
+                            "humidity": 72.99,
+                            "dewPoint": 20.12
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T09:12:00Z",
+                        "values": {
+                            "temperature": 28.09,
+                            "humidity": 76.88,
+                            "dewPoint": 21.78
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T10:12:00Z",
+                        "values": {
+                            "temperature": 28.26,
+                            "humidity": 75.64,
+                            "dewPoint": 21.56
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T11:12:00Z",
+                        "values": {
+                            "temperature": 28.2,
+                            "humidity": 70.95,
+                            "dewPoint": 20.01
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T12:12:00Z",
+                        "values": {
+                            "temperature": 29.25,
+                            "humidity": 66.61,
+                            "dewPoint": 19.51
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T13:12:00Z",
+                        "values": {
+                            "temperature": 33.57,
+                            "humidity": 59.44,
+                            "dewPoint": 20.91
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T14:12:00Z",
+                        "values": {
+                            "temperature": 38.41,
+                            "humidity": 50.74,
+                            "dewPoint": 21.67
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T15:12:00Z",
+                        "values": {
+                            "temperature": 43.16,
+                            "humidity": 41.85,
+                            "dewPoint": 21.47
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T16:12:00Z",
+                        "values": {
+                            "temperature": 46.71,
+                            "humidity": 34.5,
+                            "dewPoint": 20.16
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T17:12:00Z",
+                        "values": {
+                            "temperature": 49.06,
+                            "humidity": 31.26,
+                            "dewPoint": 19.96
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T18:12:00Z",
+                        "values": {
+                            "temperature": 50.95,
+                            "humidity": 31.08,
+                            "dewPoint": 21.47
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T19:12:00Z",
+                        "values": {
+                            "temperature": 51.94,
+                            "humidity": 32.86,
+                            "dewPoint": 23.63
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T20:12:00Z",
+                        "values": {
+                            "temperature": 51.75,
+                            "humidity": 36.5,
+                            "dewPoint": 25.95
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T21:12:00Z",
+                        "values": {
+                            "temperature": 50.47,
+                            "humidity": 43.15,
+                            "dewPoint": 28.71
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T22:12:00Z",
+                        "values": {
+                            "temperature": 46.9,
+                            "humidity": 57.11,
+                            "dewPoint": 32.45
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-03T23:12:00Z",
+                        "values": {
+                            "temperature": 41.72,
+                            "humidity": 66.01,
+                            "dewPoint": 31.21
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T00:12:00Z",
+                        "values": {
+                            "temperature": 39.58,
+                            "humidity": 70.18,
+                            "dewPoint": 30.67
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T01:12:00Z",
+                        "values": {
+                            "temperature": 38.25,
+                            "humidity": 72.13,
+                            "dewPoint": 30.06
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T02:12:00Z",
+                        "values": {
+                            "temperature": 37,
+                            "humidity": 74.84,
+                            "dewPoint": 29.75
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T03:12:00Z",
+                        "values": {
+                            "temperature": 35.35,
+                            "humidity": 79.23,
+                            "dewPoint": 29.57
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T04:12:00Z",
+                        "values": {
+                            "temperature": 34.11,
+                            "humidity": 80.66,
+                            "dewPoint": 28.8
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T05:12:00Z",
+                        "values": {
+                            "temperature": 33.66,
+                            "humidity": 79.39,
+                            "dewPoint": 27.95
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T06:12:00Z",
+                        "values": {
+                            "temperature": 32.77,
+                            "humidity": 81.08,
+                            "dewPoint": 27.34
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T07:12:00Z",
+                        "values": {
+                            "temperature": 31.8,
+                            "humidity": 87.93,
+                            "dewPoint": 27.37
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T08:12:00Z",
+                        "values": {
+                            "temperature": 31.28,
+                            "humidity": 88.83,
+                            "dewPoint": 27.12
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T09:12:00Z",
+                        "values": {
+                            "temperature": 30.63,
+                            "humidity": 88.12,
+                            "dewPoint": 26.33
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T10:12:00Z",
+                        "values": {
+                            "temperature": 29.86,
+                            "humidity": 86.87,
+                            "dewPoint": 25.63
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T11:12:00Z",
+                        "values": {
+                            "temperature": 29.05,
+                            "humidity": 85.54,
+                            "dewPoint": 24.76
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T12:12:00Z",
+                        "values": {
+                            "temperature": 28.26,
+                            "humidity": 78.99,
+                            "dewPoint": 22.93
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T13:12:00Z",
+                        "values": {
+                            "temperature": 28.98,
+                            "humidity": 67.01,
+                            "dewPoint": 21.38
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T14:12:00Z",
+                        "values": {
+                            "temperature": 30.2,
+                            "humidity": 60.52,
+                            "dewPoint": 21.16
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T15:12:00Z",
+                        "values": {
+                            "temperature": 31.64,
+                            "humidity": 55.4,
+                            "dewPoint": 21.11
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T16:12:00Z",
+                        "values": {
+                            "temperature": 33.1,
+                            "humidity": 52.36,
+                            "dewPoint": 21.38
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T17:12:00Z",
+                        "values": {
+                            "temperature": 34.21,
+                            "humidity": 49.33,
+                            "dewPoint": 21.13
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T18:12:00Z",
+                        "values": {
+                            "temperature": 34.72,
+                            "humidity": 48.02,
+                            "dewPoint": 20.82
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T19:12:00Z",
+                        "values": {
+                            "temperature": 35.13,
+                            "humidity": 48.63,
+                            "dewPoint": 21.13
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T20:12:00Z",
+                        "values": {
+                            "temperature": 35.38,
+                            "humidity": 50.49,
+                            "dewPoint": 21.54
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T21:12:00Z",
+                        "values": {
+                            "temperature": 35.11,
+                            "humidity": 51.56,
+                            "dewPoint": 21.09
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T22:12:00Z",
+                        "values": {
+                            "temperature": 33.87,
+                            "humidity": 53.72,
+                            "dewPoint": 19.8
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-04T23:12:00Z",
+                        "values": {
+                            "temperature": 31.6,
+                            "humidity": 59.23,
+                            "dewPoint": 18.61
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-05T00:12:00Z",
+                        "values": {
+                            "temperature": 29.07,
+                            "humidity": 61.49,
+                            "dewPoint": 17.08
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-05T01:12:00Z",
+                        "values": {
+                            "temperature": 26.73,
+                            "humidity": 61.89,
+                            "dewPoint": 15.46
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-05T02:12:00Z",
+                        "values": {
+                            "temperature": 24.51,
+                            "humidity": 60.67,
+                            "dewPoint": 13.05
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-05T03:12:00Z",
+                        "values": {
+                            "temperature": 22.82,
+                            "humidity": 57.98,
+                            "dewPoint": 10.42
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-05T04:12:00Z",
+                        "values": {
+                            "temperature": 21.7,
+                            "humidity": 57.72,
+                            "dewPoint": 9.3
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-05T05:12:00Z",
+                        "values": {
+                            "temperature": 20.93,
+                            "humidity": 57.62,
+                            "dewPoint": 8.56
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-05T06:12:00Z",
+                        "values": {
+                            "temperature": 20.35,
+                            "humidity": 57.44,
+                            "dewPoint": 8.13
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-05T07:12:00Z",
+                        "values": {
+                            "temperature": 19.65,
+                            "humidity": 55.35,
+                            "dewPoint": 6.89
+                        }
+                    },
+                    {
+                        "startTime": "2021-03-05T08:12:00Z",
+                        "values": {
+                            "temperature": 18.9,
+                            "humidity": 52.66,
+                            "dewPoint": 5.09
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
