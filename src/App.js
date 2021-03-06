@@ -5,7 +5,13 @@ import HourRow from './components/HourRow';
 const forecast = Forecast;
 const hours = forecast.data.timelines[0].intervals;
 
+
+
 function App() {
+
+  const listOfHours = hours.map(hour =>
+    <HourRow hour={hour} />
+  );
 
   return (
     <div className="App">
@@ -22,7 +28,7 @@ function App() {
           </tr>
           </thead>
           <tbody>
-          <HourRow hour={hours[0]}/>
+            { listOfHours }
           </tbody>
       </table>
     </div>
