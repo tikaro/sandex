@@ -8,8 +8,6 @@ export default function HourRow(props) {
 
     const temperature = props.hour.values.temperature;
     const humidity = props.hour.values.humidity;
-    const dewpoint = props.hour.values.dewPoint;
-
     const isSandexString = isSandex(temperature, humidity).toString();
 
     return (
