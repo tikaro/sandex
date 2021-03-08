@@ -4,20 +4,23 @@ import sandexMessage from '../js/sandexMessage.js';
 
 export default function HourRow(props) {
     const time = new Date(props.hour.startTime);
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { weekday: 'long', month: 'long', hour: 'numeric', minute: '2-digit', day: 'numeric' };
 
     const temperature = props.hour.values.temperature;
     const humidity = props.hour.values.humidity;
     const dewpoint = props.hour.values.dewPoint;
 
+    const isSandexString = isSandex(temperature, humidity).toString();
+
     return (
-        <tr className="hour">
-            <td className="time">{time.toLocaleTimeString('en-US',options)}</td>
-            <td className="temp">{temperature}&deg;F</td>
-            <td className="humidity">{humidity}%rh</td>
-            <td className="dewpoint">{dewpoint}&deg;F</td>
-            <td className="isSandex">{isSandex(temperature, humidity).toString()}</td>
-            <td className="sandexMessage">{sandexMessage(temperature, humidity)}</td>
+        <tr className={`hour sandex-${isSandexString}`}>
+            <td className="time">
+                <span title={`${sandexMessage(temperature, humidity)}`}>
+                    {time.toLocaleTimeString('en-US',options)}
+                </span>
+            </td>
+            <td className="temp">{Math.round(temperature,0)}&deg;</td>
+            <td className="humidity">{Math.round(humidity,0)}%</td>
         </tr>
     );
   }

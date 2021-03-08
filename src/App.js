@@ -15,22 +15,25 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Sandex</h1>
+      <>
+      <div id="header">
+        <h1>Sandex</h1>
+      </div>
+      <div id="forecast">
       <table>
           <thead>
           <tr>
             <th>Time</th>
-            <th>Temperature</th>
-            <th>Humidity</th>
-            <th>Dewpoint</th>
-            <th>Is Sandex?</th>
-            <th>Why?</th>
+            <th>Temp</th>
+            <th><span title="Relative Humidity">RH</span></th>
           </tr>
           </thead>
           <tbody>
             { listOfHours }
           </tbody>
       </table>
+      </div>
+      </>
     </div>
   );
 }
