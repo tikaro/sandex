@@ -21,7 +21,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: save API
-      run:  curl --location --request GET 'https://data.climacell.co/v4/timelines?apikey=isddI3J554xIy57ZycsDOI2hkRCINvdM&timesteps=1h&location=39.99,-75.58&fields=temperature,humidity,dewPoint&units=imperial' > response.json
+      run:  curl --location --request GET 'https://data.climacell.co/v4/timelines?apikey=isddI3J554xIy57ZycsDOI2hkRCINvdM&timesteps=1h&location=39.99,-75.58&fields=temperature,humidity,dewPoint&units=imperial' > src/json/response.json
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
