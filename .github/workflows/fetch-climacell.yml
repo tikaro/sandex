@@ -11,33 +11,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Run a one-line script
-        run: pwd
-      - name: Run a multi-line script
-        run: |
-          ls
-          git status
-      - name: Save current weather condition
+      - name: Fetch the weather forecast from Climacell
         env:
           CLIMACELL_API_KEY: ${{ secrets.CLIMACELL_API_KEY }}
         run: |
           FILE=./src/json/forecast.json
-          if [ -f "$FILE" ]; then
-              echo "$FILE exists. Done for today."
+          echo "Fetching today's forecast from Climacell..."
+          url="https://data.climacell.co/v4/timelines?apikey="$CLIMACELL_API_KEY$"&timesteps=1h&location=39.99,-75.58&fields=temperature,humidity,dewPoint&units=imperial"
+          response=$(curl -f "$url")
+          status=$?
+          if [ $status -eq 0 ]; then
+              echo $response > $FILE
+              echo "$FILE saved."
           else
-              echo "Begin to get today's weather condition."
-              url="https://data.climacell.co/v4/timelines?apikey="$CLIMACELL_API_KEY$"&timesteps=1h&location=39.99,-75.58&fields=temperature,humidity,dewPoint&units=imperial"
-              response=$(curl -f "$url")
-              status=$?
-              if [ $status -eq 0 ]; then
-                  echo $response > $FILE
-                  echo "$FILE saved."
-              else
-                  echo "curl exit code: ($status) $response"
-                  exit $status
-              fi
+              echo "curl exit code: ($status) $response"
+              exit $status
           fi
-      - name: git check in
+      - name: Commit changes to git
         env:
           GIT_OWNER_EMAIL: ${{ secrets.GIT_OWNER_EMAIL }} 
           PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
@@ -46,10 +36,10 @@ jobs:
           git config user.name "tikaro"
           if [[ `git status --porcelain` ]]; then
             git add .
-            git commit -a -m "add climacell forecast data"
+            git commit -a -m "Add climacell forecast data"
             git remote rm origin
             git remote add origin https://tikaro:$PUSH_TOKEN@github.com/tikaro/sandex.git
             git push origin HEAD:main
           else
-            echo 'unable to detech changes'
+            echo 'unable to detect any changes'
           fi
