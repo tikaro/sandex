@@ -1,5 +1,5 @@
 import './App.css';
-import Forecast from './json/response.json';
+import Forecast from './json/forecast.json';
 import HourRow from './components/HourRow';
 
 const forecast = Forecast;
