@@ -52,10 +52,3 @@ jobs:
           else
             echo 'unable to detech changes'
           fi
-
-
-
-
-
-
-      run:  curl --location --request GET '' > response.json
