@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Fetch the weather forecast from Climacell
         env:
           CLIMACELL_API_KEY: ${{ secrets.CLIMACELL_API_KEY }}
@@ -36,7 +36,7 @@ jobs:
           git config user.name "tikaro"
           if [[ `git status --porcelain` ]]; then
             git add .
-            git commit -a -m "Add climacell forecast data"
+            git commit -a -m "Update forecast data from Climacell API"
             git remote rm origin
             git remote add origin https://tikaro:$PUSH_TOKEN@github.com/tikaro/sandex.git
             git push origin HEAD:main
