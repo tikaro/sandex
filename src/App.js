@@ -1,4 +1,4 @@
-import './App.css';
+import './scss/index.scss';
 import Forecast from './json/forecast.json';
 import HourRow from './components/HourRow';
 

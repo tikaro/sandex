@@ -1,7 +1,3 @@
-.App {
-  
-}
-
 body {
   background: #F8F8F8;
   font-family: sans-serif;
@@ -31,10 +27,6 @@ body {
   text-align: center;
 }
 
-#forecast {
- /* no statements */
-}
-
 table {
   margin: 0 auto;
   border-spacing: 0px;
@@ -48,8 +40,4 @@ td {
 
 tr.sandex-true {
   background-color: #00FF00;
-}
-
-tr.sandex-false {
-  /* no color */
 }
