@@ -1,3 +1,6 @@
+// These boundaries taken from the KDLT Weather Blog is here:
+// https://kdltweather.blogspot.com/2009/05/summerlike-humidity-is-backfor-about.html
+
 export default function dewpointComfort(dewpoint) {
 
     if (dewpoint < 50) return "very-dry";

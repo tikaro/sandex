@@ -41,3 +41,28 @@ td {
 tr.sandex-true {
   background-color: #00FF00;
 }
+
+td.dewpoint-very-dry {
+  background-color: #00CCFF;
+}
+
+td.dewpoint-comfortable {
+  background-color: #00FF00;
+}
+
+td.dewpoint-slightly-humid {
+  background-color: #FE9901;
+}
+
+td.dewpoint-humid {
+  background-color: #FF6500;
+}
+
+td.dewpoint-very-humid {
+  background-color: #FE0000;
+}
+
+td.dewpoint-oppressive {
+  background-color: #820204;
+  color: #FFF;
+}

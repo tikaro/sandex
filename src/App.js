@@ -10,7 +10,7 @@ const hours = forecast.data.timelines[0].intervals;
 function App() {
 
   const listOfHours = hours.map(hour =>
-    <HourRow hour={hour} />
+    <HourRow key={hour.toStartTime} hour={hour} />
   );
 
   return (
