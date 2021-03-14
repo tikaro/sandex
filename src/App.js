@@ -25,7 +25,7 @@ function App() {
           <tr>
             <th>Time</th>
             <th>Temp</th>
-            <th><span title="Relative Humidity">RH</span></th>
+            <th><span title="Dewpoint">Dew</span></th>
           </tr>
           </thead>
           <tbody>
