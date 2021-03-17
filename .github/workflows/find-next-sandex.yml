@@ -27,4 +27,5 @@ jobs:
         envkey_TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
         TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
 
+    - run: yarn install
     - run: yarn findNextSandex
