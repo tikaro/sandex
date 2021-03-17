@@ -1,6 +1,10 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import forecast from '../src/json/forecast.json';
 const hours = forecast.data.timelines[0].intervals;
 import isSandex from '../src/js/isSandex.js';
+import Twilio from 'twilio';
 
 const sandexHours = hours.filter(hour => isSandex(hour.values.temperature, hour.values.humidity))
 
@@ -12,7 +16,20 @@ if ( sandexHours.length > 0 ) {
   const nextSandexTime = new Date(sandexHours.shift().startTime);
   const options = { weekday: 'long', month: 'long', hour: 'numeric', day: 'numeric' };
   const nextSandexTimeString = nextSandexTime.toLocaleTimeString('en-US',options)
-  sandexMessage = `Sandex coming up on ${nextSandexTimeString} https://sandex.netlify.app`
+  sandexMessage = `Sandex coming up on ${nextSandexTimeString}\nhttps://sandex.netlify.app`
 }
 
-if (foundSandex) { console.log(sandexMessage) }
+if (foundSandex) { 
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
+  const client = new Twilio(accountSid, authToken);
+  
+  console.log(sandexMessage);
+  client.messages
+    .create({
+       body: sandexMessage,
+       from: '+12406182278',
+       to: '+14846781977'
+     })
+    .then(message => console.log(message.sid));
+ }
