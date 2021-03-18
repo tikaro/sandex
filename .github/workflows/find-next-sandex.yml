@@ -29,8 +29,8 @@ jobs:
     - name: Creating .env file
       uses: SpicyPizza/create-envfile@v1
       with:
-        envkey_TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-        envkey_TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+        envkey_TWILIO_ACCOUNT_SID: ${{secrets.TWILIO_ACCOUNT_SID}}
+        envkey_TWILIO_AUTH_TOKEN: ${{secrets.TWILIO_AUTH_TOKEN}}
 
     - name: Viewing .env file
       run: cat .env
