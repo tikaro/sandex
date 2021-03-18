@@ -25,7 +25,7 @@ jobs:
       uses: SpicyPizza/create-envfile@v1
       with:
         envkey_TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-        TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+        envkey_TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
 
     - run: yarn install --ignore-engines
     - run: yarn findNextSandex
