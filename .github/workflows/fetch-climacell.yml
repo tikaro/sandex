@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Fetch the weather forecast from Climacell
+      - name: Fetching the weather forecast from Climacell
         env:
           CLIMACELL_API_KEY: ${{ secrets.CLIMACELL_API_KEY }}
         run: |
@@ -27,7 +27,7 @@ jobs:
               echo "curl exit code: ($status) $response"
               exit $status
           fi
-      - name: Commit changes to git
+      - name: Committing changes to git
         env:
           GIT_OWNER_EMAIL: ${{ secrets.GIT_OWNER_EMAIL }} 
           PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
