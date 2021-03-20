@@ -20,7 +20,7 @@ function App() {
         <h1>Sandex</h1>
       </div>
       <div id="forecast">
-      <table>
+      <table className="styled-table">
           <thead>
           <tr>
             <th>Time</th>

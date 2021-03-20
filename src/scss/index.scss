@@ -1,5 +1,7 @@
+@import "./colors";
+
 body {
-  background: #F8F8F8;
+  background: $page-background-color;
   font-family: sans-serif;
   font-size: 1.4em;
   margin: 0px;
@@ -10,10 +12,11 @@ body {
 }
 
 #header {
-  background: #DDDDDD;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
+  background: $header-background-color;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  border-bottom: 4px solid $sandex-true-text-color;
+  margin-bottom: 1em;
 }
 
 #header h1 {
@@ -27,42 +30,71 @@ body {
   text-align: center;
 }
 
-table {
+.styled-table {
+  border-collapse: collapse;
   margin: 0 auto;
-  border-spacing: 0px;
-}
-  
-td {
-  text-align: right;
-  padding: 5px;
-  margin: 0px;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+  th, td {
+    padding: 12px 15px;
+  }
+
+  thead tr {
+    background-color: $gray-1;
+    text-align: center;
+  }
+
+  tbody {
+    tr {
+      border-bottom: thin solid $gray-2;
+    }
+
+    tr:nth-of-type(even) {
+      background-color: $gray-3;
+    }
+
+    tr:last-of-type {
+      border-bottom: 2px solid $sandex-true-color;
+    }
+
+    tr.sandex-true {
+      background-color: $sandex-true-color;
+    }
+
+    td {
+      text-align: right;
+    }
+
+    td.temp, td.dewpoint {
+      text-align: center;
+    }
+
+    td.dewpoint-very-dry {
+      color: $dewpoint-very-dry-color;
+    }
+
+    td.dewpoint-comfortable {
+      color: $dewpoint-comfortable-color;
+    }
+    
+    td.dewpoint-slightly-humid {
+      color: $dewpoint-slightly-humid-color;
+    }
+    
+    td.dewpoint-humid {
+      color: $dewpoint-humid-color;
+    }
+    
+    td.dewpoint-very-humid {
+      color: $dewpoint-very-humid-color;
+    }
+    
+    td.dewpoint-oppressive {
+      color: $dewpoint-oppressive-color;
+    }
+  }
 }
 
-tr.sandex-true {
-  background-color: #00FF00;
-}
 
-td.dewpoint-very-dry {
-  background-color: #00CCFF;
-}
 
-td.dewpoint-comfortable {
-  background-color: #00FF00;
-}
-
-td.dewpoint-slightly-humid {
-  background-color: #FE9901;
-}
-
-td.dewpoint-humid {
-  background-color: #FF6500;
-}
-
-td.dewpoint-very-humid {
-  background-color: #FE0000;
-}
-
-td.dewpoint-oppressive {
-  background-color: #820204;
-  color: #FFF;
-}

@@ -6,7 +6,7 @@ import dewpointComfort from '../js/dewpointComfort.js';
 export default function HourRow(props) {
     const rowTime = new Date(props.hour.startTime);
     const timeNow = new Date();
-    const options = { weekday: 'long', month: 'long', hour: 'numeric', day: 'numeric' };
+    const options = { weekday: 'long', hour: 'numeric' };
 
     const temperature = props.hour.values.temperature;
     const humidity = props.hour.values.humidity;
