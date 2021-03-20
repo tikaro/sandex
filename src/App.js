@@ -33,6 +33,9 @@ function App() {
           </tbody>
       </table>
       </div>
+      <div id="wifir">
+        <img src="/wifir.png" />
+      </div>
       </>
     </div>
   );
