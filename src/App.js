@@ -34,7 +34,7 @@ function App() {
       </table>
       </div>
       <div id="wifir">
-        <img src="/wifir.png" />
+        <img src="/wifir.png" alt="The wifir is the logo for 'coworkout', an outdoor co-working group" width="249px" height="249px" />
       </div>
       </>
     </div>

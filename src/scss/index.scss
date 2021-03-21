@@ -13,13 +13,14 @@ body {
 
 #header {
   background: $header-background-color;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   border-bottom: 4px solid $sandex-true-text-color;
   margin-bottom: 1em;
 }
 
 #header h1 {
+  font-family: 'Work Sans', sans-serif;
   font-style: normal;
   font-weight: 900;
   text-transform: uppercase;
@@ -28,6 +29,7 @@ body {
   padding: 0px;
   line-height: 1em;
   text-align: center;
+
 }
 
 #wifir {
@@ -38,7 +40,6 @@ body {
 .styled-table {
   border-collapse: collapse;
   margin: 0 auto;
-  min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
   th, td {
@@ -46,17 +47,18 @@ body {
   }
 
   thead tr {
-    background-color: $gray-1;
+    background-color: $sandex-true-color;
+    font-family: 'Work Sans', sans-serif;
     text-align: center;
   }
 
   tbody {
     tr {
-      border-bottom: thin solid $gray-2;
+      border-bottom: thin solid $gray-1;
     }
 
     tr:nth-of-type(even) {
-      background-color: $gray-3;
+      background-color: $gray-2;
     }
 
     tr:last-of-type {
