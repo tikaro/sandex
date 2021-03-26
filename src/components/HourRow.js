@@ -24,7 +24,8 @@ export default function HourRow(props) {
                 </span>
             </td>
             <td className="temp">{Math.round(temperature,0)}&deg;</td>
-            <td className={`dewpoint dewpoint-${dewpointComfort(dewpoint)}`}>{Math.round(dewpoint,0)}&deg;</td>
+            <td className="humidity">{Math.round(humidity,0)}%</td>
+            <td className="dewpoint"><span title={`${Math.round(dewpoint,0)} degrees`} className={`dewpoint-bullet dewpoint-${dewpointComfort(dewpoint)}`}></span></td>
         </tr>
     );
   }

@@ -76,30 +76,42 @@ body {
     td.temp, td.dewpoint {
       text-align: center;
     }
+  }
+  span.dewpoint-bullet {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
 
-    td.dewpoint-very-dry {
-      color: $dewpoint-very-dry-color;
-    }
+  span.dewpoint-very-dry {
+    background-color: $dewpoint-very-dry-color;
+  }
 
-    td.dewpoint-comfortable {
-      color: $dewpoint-comfortable-color;
-    }
-    
-    td.dewpoint-slightly-humid {
-      color: $dewpoint-slightly-humid-color;
-    }
-    
-    td.dewpoint-humid {
-      color: $dewpoint-humid-color;
-    }
-    
-    td.dewpoint-very-humid {
-      color: $dewpoint-very-humid-color;
-    }
-    
-    td.dewpoint-oppressive {
-      color: $dewpoint-oppressive-color;
-    }
+  span.dewpoint-comfortable {
+    background-color: $dewpoint-comfortable-color;
+  }
+
+  span.dewpoint-pleasant {
+    background-color: $dewpoint-pleasant-color;
+  }
+  
+  span.dewpoint-slightly-humid {
+    background-color: $dewpoint-slightly-humid-color;
+  }
+  
+  span.dewpoint-humid {
+    background-color: $dewpoint-humid-color;
+  }
+  
+  span.dewpoint-very-humid {
+    background-color: $dewpoint-very-humid-color;
+  }
+  
+  span.dewpoint-oppressive {
+    color: #fff;
+    background-color: $dewpoint-oppressive-color;
   }
 }
 
