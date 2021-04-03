@@ -1,6 +1,6 @@
 import React from 'react';
 import isSandex from '../js/isSandex.js';
-import sandexMessage from '../js/sandexMessage.js';
+import { humidityMessage, temperatureMessage, sandexMessage } from '../js/sandexMessage.js';
 import { dewpointComfort, dewpointComfortMessage } from '../js/dewpointComfort.js';
 
 export default function HourRow(props) {
@@ -25,7 +25,12 @@ export default function HourRow(props) {
             </td>
             <td className="temp">{Math.round(temperature,0)}&deg;</td>
             <td className="humidity">{Math.round(humidity,0)}%</td>
-            <td className="dewpoint"><span title={`${dewpointComfortMessage(dewpoint)} at ${Math.round(dewpoint,0)}°.`} className={`dewpoint-bullet dewpoint-${dewpointComfort(dewpoint)}`}></span></td>
+            <td className="dewpoint">
+                <span 
+                    title={`${dewpointComfortMessage(dewpoint)} at ${Math.round(dewpoint,0)}°.`} 
+                    className={`dewpoint-bullet dewpoint-${dewpointComfort(dewpoint)}`}
+                ></span>
+            </td>
         </tr>
     );
   }
