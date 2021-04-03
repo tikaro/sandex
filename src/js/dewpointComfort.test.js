@@ -1,6 +1,6 @@
-import dewpointComfort from './dewpointComfort';
+import { dewpointComfort, dewpointComfortMessage } from './dewpointComfort';
 
-describe("Dewpoint Comfort", () => {
+describe("DewpointComfort", () => {
     test("should return 'very-dry' at 49 degrees ", () => {
       expect(dewpointComfort(49)).toEqual('very-dry');
     });
@@ -44,5 +44,35 @@ describe("Dewpoint Comfort", () => {
     test("should handle decimals properly", () => {
       expect(dewpointComfort(75.99)).toEqual('very-humid');
       expect(dewpointComfort(76.01)).toEqual('oppressive');
+    });
+  });
+
+  describe("DewpointComfortMessage", () => {
+    test("should return 'Very dry' at 49 degrees ", () => {
+      expect(dewpointComfortMessage(49)).toEqual('Very dry');
+    });
+
+    test("should return 'Comfortable' at 50 degrees ", () => {
+      expect(dewpointComfortMessage(50)).toEqual('Comfortable');
+    });
+
+    test("should return 'Pleasant' at 56 degrees ", () => {
+      expect(dewpointComfortMessage(56)).toEqual('Pleasant');
+    });
+
+    test("should return 'Slightly humid' at 61 degrees ", () => {
+      expect(dewpointComfortMessage(61)).toEqual('Slightly humid');
+    });
+
+    test("should return 'Humid' at 66 degrees ", () => {
+      expect(dewpointComfortMessage(66)).toEqual('Humid');
+    });
+
+    test("should return 'Very humid' at 71 degrees ", () => {
+      expect(dewpointComfortMessage(71)).toEqual('Very humid');
+    });
+
+    test("should return 'Oppressive' above 75 degrees", () => {
+      expect(dewpointComfortMessage(76)).toEqual('Oppressive');
     });
   });
