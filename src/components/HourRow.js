@@ -23,8 +23,20 @@ export default function HourRow(props) {
                     {rowTime.toLocaleTimeString('en-US',options)}
                 </span>
             </td>
-            <td className="temp">{Math.round(temperature,0)}&deg;</td>
-            <td className="humidity">{Math.round(humidity,0)}%</td>
+            <td className="temp">
+                <span
+                    title={`${temperatureMessage(temperature,humidity)}`}
+                >
+                    {Math.round(temperature,0)}&deg;
+                </span>
+            </td>
+            <td className="humidity">
+                <span
+                    title={`${humidityMessage(humidity)}`}
+                >
+                    {Math.round(humidity,0)}%
+                </span>
+            </td>
             <td className="dewpoint">
                 <span 
                     title={`${dewpointComfortMessage(dewpoint)} at ${Math.round(dewpoint,0)}°.`} 
