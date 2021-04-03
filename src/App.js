@@ -10,7 +10,13 @@ const hours = forecast.data.timelines[0].intervals;
 function App() {
 
   const listOfHours = hours.map(hour =>
-    <HourRow key={hour.startTime} hour={hour} />
+    <HourRow 
+      key = {hour.startTime} 
+      startTime = {hour.startTime}
+      temperature = {hour.values.temperature}
+      humidity = {hour.values.humidity}
+      dewPoint =  {hour.values.dewPoint}
+    />
   );
 
   return (
