@@ -21,7 +21,5 @@ export function humidityIsSandex(humidity) {
 
 
 export function hourIsSandex(temperature, humidity) {
-    const percentageHumidity = (+humidity / 100);
-
     return temperatureIsSandex(temperature,humidity) && humidityIsSandex(humidity)
 }
