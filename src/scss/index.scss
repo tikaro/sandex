@@ -73,6 +73,10 @@ body {
       text-align: right;
     }
 
+    td.sandex-true {
+      background-color: $sandex-true-color;
+    }
+
     td.temp, td.dewpoint {
       text-align: center;
     }

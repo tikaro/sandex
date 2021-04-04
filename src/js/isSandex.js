@@ -1,13 +1,27 @@
 import temperatureLowerBound from './temperatureLowerBound.js';
 import temperatureUpperBound from './temperatureUpperBound.js';
 
-export default function isSandex(temperature, humidity) {
+export function temperatureIsSandex(temperature,humidity) {
     const percentageHumidity = (+humidity / 100);
 
-    if (percentageHumidity > 0.6) return false;
-    if (percentageHumidity < 0.3) return false;
     if (temperature <= temperatureLowerBound(percentageHumidity)) return false;
     if (temperature >= temperatureUpperBound(percentageHumidity)) return false;
 
     return true;
+}
+
+export function humidityIsSandex(humidity) {
+    const percentageHumidity = (+humidity / 100);
+
+    if (percentageHumidity > 0.6) return false;
+    if (percentageHumidity < 0.3) return false;
+
+    return true;
+}
+
+
+export function hourIsSandex(temperature, humidity) {
+    const percentageHumidity = (+humidity / 100);
+
+    return temperatureIsSandex(temperature,humidity) && humidityIsSandex(humidity)
 }

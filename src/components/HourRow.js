@@ -1,5 +1,5 @@
 import React from 'react';
-import isSandex from '../js/isSandex.js';
+import {temperatureIsSandex, humidityIsSandex, hourIsSandex } from '../js/isSandex.js';
 import { humidityMessage, temperatureMessage, sandexMessage } from '../js/sandexMessage.js';
 import { dewpointComfort, dewpointComfortMessage } from '../js/dewpointComfort.js';
 
@@ -12,25 +12,27 @@ export default function HourRow(props) {
     const humidity = props.humidity;
     const dewpoint = props.dewPoint;
 
-    const isSandexString = isSandex(temperature, humidity).toString();
+    const temperatureIsSandexString = temperatureIsSandex(temperature, humidity).toString();
+    const humidityIsSandexString = humidityIsSandex(humidity).toString();
+    const hourIsSandexString = hourIsSandex(temperature, humidity).toString();
 
     if ( rowTime < timeNow ) return null;
 
     return (
-        <tr className={`hour sandex-${isSandexString}`}>
+        <tr className={`hour sandex-${hourIsSandexString}`}>
             <td className="time">
                 <span title={`${sandexMessage(temperature, humidity)}`}>
                     {rowTime.toLocaleTimeString('en-US',options)}
                 </span>
             </td>
-            <td className="temp">
+            <td className={`temp sandex-${temperatureIsSandexString}`}>
                 <span
                     title={`${temperatureMessage(temperature,humidity)}`}
                 >
                     {Math.round(temperature,0)}&deg;
                 </span>
             </td>
-            <td className="humidity">
+            <td className={`humidity sandex-${humidityIsSandexString}`}>
                 <span
                     title={`${humidityMessage(humidity)}`}
                 >

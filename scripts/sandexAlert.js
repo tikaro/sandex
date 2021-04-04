@@ -3,10 +3,10 @@ dotenv.config();
 
 import forecast from '../src/json/forecast.json';
 const hours = forecast.data.timelines[0].intervals;
-import isSandex from '../src/js/isSandex.js';
+import { hourIsSandex } from '../src/js/isSandex.js';
 import Twilio from 'twilio';
 
-const sandexHours = hours.filter(hour => isSandex(hour.values.temperature, hour.values.humidity))
+const sandexHours = hours.filter(hour => hourIsSandex(hour.values.temperature, hour.values.humidity))
 
 let foundSandex = false;
 let sandexMessage = '';
