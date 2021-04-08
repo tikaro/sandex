@@ -3,14 +3,10 @@ import {temperatureIsSandex, humidityIsSandex, hourIsSandex } from '../js/isSand
 import { humidityMessage, temperatureMessage, sandexMessage } from '../js/sandexMessage.js';
 import { dewpointComfort, dewpointComfortMessage } from '../js/dewpointComfort.js';
 
-export default function HourRow(props) {
-    const rowTime = new Date(props.startTime);
+export default function HourRow({startTime, temperature, humidity, dewpoint}) {
+    const rowTime = new Date(startTime);
     const timeNow = new Date();
     const options = { weekday: 'long', hour: 'numeric' };
-
-    const temperature = props.temperature;
-    const humidity = props.humidity;
-    const dewpoint = props.dewPoint;
 
     const temperatureIsSandexString = temperatureIsSandex(temperature, humidity).toString();
     const humidityIsSandexString = humidityIsSandex(humidity).toString();
