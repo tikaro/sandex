@@ -77,8 +77,12 @@ body {
       background-color: $sandex-true-color;
     }
 
-    td.temp, td.dewpoint {
+    td.temp {
       text-align: center;
+    }
+    
+    td.dewpoint {
+      text-align: left;
     }
   }
   span.dewpoint-bullet {

@@ -39,7 +39,7 @@ export default function HourRow({startTime, temperature, humidity, dewpoint}) {
                 <span 
                     title={`${dewpointComfortMessage(dewpoint)} at ${Math.round(dewpoint,0)}°.`} 
                     className={`dewpoint-bullet dewpoint-${dewpointComfort(dewpoint)}`}
-                ></span>
+                ></span> {`${dewpointComfortMessage(dewpoint)} at ${Math.round(dewpoint,0)}°.`}
             </td>
         </tr>
     );
