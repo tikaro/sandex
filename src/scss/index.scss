@@ -97,29 +97,29 @@ body {
     background-color: $dewpoint-very-dry-color;
   }
 
-  span.dewpoint-comfortable {
-    background-color: $dewpoint-comfortable-color;
+  span.dewpoint-dry {
+    background-color: $dewpoint-dry-color;
   }
 
-  span.dewpoint-pleasant {
-    background-color: $dewpoint-pleasant-color;
-  }
-  
-  span.dewpoint-slightly-humid {
-    background-color: $dewpoint-slightly-humid-color;
+  span.dewpoint-comfortable {
+    background-color: $dewpoint-comfortable-color;
   }
   
   span.dewpoint-humid {
     background-color: $dewpoint-humid-color;
   }
   
-  span.dewpoint-very-humid {
-    background-color: $dewpoint-very-humid-color;
+  span.dewpoint-muggy {
+    background-color: $dewpoint-muggy-color;
   }
   
   span.dewpoint-oppressive {
-    color: #fff;
     background-color: $dewpoint-oppressive-color;
+  }
+  
+  span.dewpoint-miserable {
+    color: #fff;
+    background-color: $dewpoint-miserable-color;
   }
 }
 
