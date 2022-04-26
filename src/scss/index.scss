@@ -99,23 +99,34 @@ body {
 
     td.dewpoint-comfortable {
       background-color: $dewpoint-comfortable-color;
+      color: transparent;
+      text-shadow: #111 0 0 1px;
     }
     
     td.dewpoint-humid {
       background-color: $dewpoint-humid-color;
+      color: transparent;
+      text-shadow: #111 0 0 2px;
     }
     
     td.dewpoint-muggy {
       background-color: $dewpoint-muggy-color;
+      color: transparent;
+      text-shadow: #111 0 0 3px;
     }
     
     td.dewpoint-oppressive {
       background-color: $dewpoint-oppressive-color;
+      color: transparent;
+      text-shadow: #111 0 0 4px;
     }
     
     td.dewpoint-miserable {
       color: #fff;
       background-color: $dewpoint-miserable-color;
+      color: transparent;
+      font-weight: bold;
+      text-shadow: #fff 0 0 5px;
     }
   }
 }
