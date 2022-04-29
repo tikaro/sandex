@@ -1,7 +1,7 @@
 import React from 'react';
 import calculateHumidityFromDewpoint from '../js/calculateHumidityFromDewpoint.mjs';
-import {temperatureIsSandex, humidityIsSandex, hourIsSandex } from '../js/isSandex.mjs';
-import { humidityMessage, temperatureMessage, sandexMessage } from '../js/sandexMessage.mjs';
+import { temperatureIsSandex, hourIsSandex } from '../js/isSandex.mjs';
+import { temperatureMessage, sandexMessage } from '../js/sandexMessage.mjs';
 import { dewpointComfort, dewpointComfortMessage } from '../js/dewpointComfort.mjs';
 
 export default function HourRow({startTime, temperature, dewpoint}) {
