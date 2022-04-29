@@ -14,9 +14,6 @@ export default {
     temperature: {
       control: { type: 'range', min: 32, max: 116 },
     },
-    humidity: {
-      control: { type: 'range', min: 0, max: 100 },
-    },
     dewpoint: {
       control: { type: 'range', min: 40, max: 85 },
     },
@@ -53,7 +50,6 @@ export const Perfect = Template.bind({});
 Perfect.args = {
   startTime: inFourHours,
   temperature: 69,
-  humidity: 50,
   dewpoint: 40
 };
 
@@ -63,7 +59,6 @@ export const TooHot = Template.bind({});
 TooHot.args = {
   startTime: inFourHours,
   temperature: 89,
-  humidity: 50,
   dewpoint: 40
 };
 
@@ -73,7 +68,6 @@ export const TooCold = Template.bind({});
 TooCold.args = {
   startTime: inFourHours,
   temperature: 59,
-  humidity: 50,
   dewpoint: 40
 };
 
@@ -83,7 +77,6 @@ export const TooDry = Template.bind({});
 TooDry.args = {
   startTime: inFourHours,
   temperature: 69,
-  humidity: 20,
   dewpoint: 40
 };
 
@@ -93,6 +86,5 @@ export const TooHumid = Template.bind({});
 TooHumid.args = {
   startTime: inFourHours,
   temperature: 69,
-  humidity: 80,
   dewpoint: 40
 };

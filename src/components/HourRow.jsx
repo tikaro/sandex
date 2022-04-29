@@ -1,13 +1,15 @@
 import React from 'react';
+import calculateHumidityFromDewpoint from '../js/calculateHumidityFromDewpoint.mjs';
 import {temperatureIsSandex, humidityIsSandex, hourIsSandex } from '../js/isSandex.mjs';
 import { humidityMessage, temperatureMessage, sandexMessage } from '../js/sandexMessage.mjs';
 import { dewpointComfort, dewpointComfortMessage } from '../js/dewpointComfort.mjs';
 
-export default function HourRow({startTime, temperature, humidity, dewpoint}) {
+export default function HourRow({startTime, temperature, dewpoint}) {
     const rowTime = new Date(startTime);
     const timeNow = new Date();
     const options = { weekday: 'long', hour: 'numeric' };
 
+    const humidity = calculateHumidityFromDewpoint(temperature, dewpoint);
     const temperatureIsSandexString = temperatureIsSandex(temperature, humidity).toString();
     const humidityIsSandexString = humidityIsSandex(humidity).toString();
     const hourIsSandexString = hourIsSandex(temperature, humidity).toString();

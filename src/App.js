@@ -14,7 +14,6 @@ function App() {
       key = {hour.startTime} 
       startTime = {hour.startTime}
       temperature = {hour.values.temperature}
-      humidity = {hour.values.humidity}
       dewpoint =  {hour.values.dewPoint}
     />
   );
