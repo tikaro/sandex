@@ -11,7 +11,6 @@ export default function HourRow({startTime, temperature, dewpoint}) {
 
     const humidity = calculateHumidityFromDewpoint(temperature, dewpoint);
     const temperatureIsSandexString = temperatureIsSandex(temperature, humidity).toString();
-    const humidityIsSandexString = humidityIsSandex(humidity).toString();
     const hourIsSandexString = hourIsSandex(temperature, humidity).toString();
 
     if ( rowTime < timeNow ) return null;
@@ -28,13 +27,6 @@ export default function HourRow({startTime, temperature, dewpoint}) {
                     title={`${temperatureMessage(temperature,humidity)}`}
                 >
                     {Math.round(temperature,0)}&deg;
-                </span>
-            </td>
-            <td className={`humidity sandex-${humidityIsSandexString}`}>
-                <span
-                    title={`${humidityMessage(humidity)}`}
-                >
-                    {Math.round(humidity,0)}%
                 </span>
             </td>
             <td 

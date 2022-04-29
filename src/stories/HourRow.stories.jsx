@@ -25,7 +25,6 @@ export default {
         <tr>
           <th>Time</th>
           <th><span title="Temperature">Temp</span></th>
-          <th><span title="Relative Humidity">RH</span></th>
           <th><span title="Dewpoint">Dew</span></th>
         </tr>
         </thead>
@@ -77,7 +76,7 @@ export const TooDry = Template.bind({});
 TooDry.args = {
   startTime: inFourHours,
   temperature: 69,
-  dewpoint: 40
+  dewpoint: 32
 };
 
 export const TooHumid = Template.bind({});
@@ -86,5 +85,5 @@ export const TooHumid = Template.bind({});
 TooHumid.args = {
   startTime: inFourHours,
   temperature: 69,
-  dewpoint: 40
+  dewpoint: 63
 };
