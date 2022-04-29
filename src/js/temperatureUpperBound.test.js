@@ -1,4 +1,4 @@
-import temperatureUpperBound from './temperatureUpperBound.js';
+import temperatureUpperBound from './temperatureUpperBound.mjs';
 
 describe("temperatureUpperBound ", () => {
     test("is 82 at 30% humidity", () => {

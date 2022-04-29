@@ -1,5 +1,5 @@
-import temperatureLowerBound from './temperatureLowerBound.js';
-import temperatureUpperBound from './temperatureUpperBound.js';
+import temperatureLowerBound from './temperatureLowerBound.mjs';
+import temperatureUpperBound from './temperatureUpperBound.mjs';
 
 export function temperatureIsSandex(temperature,humidity) {
     const percentageHumidity = (+humidity / 100);

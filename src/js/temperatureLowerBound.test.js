@@ -1,4 +1,4 @@
-import temperatureLowerBound from './temperatureLowerBound.js';
+import temperatureLowerBound from './temperatureLowerBound.mjs';
 
 describe("temperatureLowerBound ", () => {
     test("is 69 at 30% humidity", () => {

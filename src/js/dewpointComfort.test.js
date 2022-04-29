@@ -1,4 +1,4 @@
-import { dewpointComfort, dewpointComfortMessage } from './dewpointComfort';
+import { dewpointComfort, dewpointComfortMessage } from './dewpointComfort.mjs';
 
 describe("DewpointComfort", () => {
     test("should return 'very-dry' at 49 degrees ", () => {
