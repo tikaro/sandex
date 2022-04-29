@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import forecast from '../src/json/forecast.json' assert { type: 'json' };
+import forecast from '../src/json/forecast.json';
 const hours = forecast.data.timelines[0].intervals;
 import { hourIsSandex } from '../src/js/isSandex.mjs';
 import Twilio from 'twilio';
