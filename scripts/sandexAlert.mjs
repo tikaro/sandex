@@ -16,7 +16,7 @@ if ( sandexHours.length > 0 ) {
   const nextSandexTime = new Date(sandexHours.shift().startTime);
   const options = { timeZone:'America/New_York', weekday: 'long', month: 'long', hour: 'numeric', day: 'numeric' };
   const nextSandexTimeString = nextSandexTime.toLocaleTimeString('en-US',options)
-  sandexMessage = `Sandex coming up on ${nextSandexTimeString}\nhttps://sandex.netlify.app`
+  sandexMessage = `Sandex coming up on ${nextSandexTimeString}\nhttps://sandex.me`
 }
 
 if (foundSandex) { 
