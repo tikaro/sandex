@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <>
       <div id="header">
-        <h1>Sandex</h1>
+        <h1>Sandex!</h1>
       </div>
       <div id="forecast">
       <table className="styled-table">
