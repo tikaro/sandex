@@ -22,7 +22,8 @@ function App() {
     <div className="App">
       <>
       <div id="header">
-        <h1>Sandex</h1>
+        <h1>Sandex on Vercel</h1>
+        <p>This is a test branch of Sandex running on Vercel.</p>
       </div>
       <div id="forecast">
       <table className="styled-table">
