@@ -21,7 +21,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "findNextSandex": "node --experimental-json-modules --no-warnings ./scripts/sandexAlert.mjs"
+    "findNextSandex": "node --experimental-json-modules --no-warnings ./scripts/sandexAlert.mjs",
+    "chromatic": "npx chromatic --project-token=c5b74268553b"
   },
   "eslintConfig": {
     "extends": [
@@ -63,6 +64,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
+    "chromatic": "^6.5.4",
     "css-loader": "^6.7.1",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
