@@ -1,0 +1,49 @@
+<!-- HourRow.stories.mdx -->
+
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { within, userEvent } from '@storybook/testing-library';
+
+import HourRow from '../components/HourRow.jsx';
+
+<Meta
+  title="HourRow"
+  decorators={[(Story) => (
+    <table className="styled-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th><span title="Temperature">Temp</span></th>
+          <th><span title="Dewpoint">Dew</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <Story />
+      </tbody>
+    </table>
+  )]}
+  argTypes={
+    startTime: { control: 'date'},
+    temperature: {
+      control: { type: 'range', min: 32, max: 116 },
+    },
+    dewpoint: {
+      control: { type: 'range', min: 40, max: 85 },
+    },
+  }
+  
+
+
+  parameters={{ ... }}
+  component={HourRow}
+/>
+
+<Meta title="HourRow" component={HourRow} />
+
+export const Template = (args) => <HourRow {...args} />;
+
+<Canvas>
+  <Story name="Hour Row">
+    {Template.bind({})}
+  </Story>
+</Canvas>
