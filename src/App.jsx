@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './scss/index.scss';
+import Forecast from './json/forecast.json';
+import HourRow from './components/HourRow.jsx';
+
+const forecast = Forecast;
+const hours = forecast.data.timelines[0].intervals;
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const listOfHours = hours.map(hour =>
+    <HourRow 
+      key = {hour.startTime} 
+      startTime = {hour.startTime}
+      temperature = {hour.values.temperature}
+      dewpoint =  {hour.values.dewPoint}
+    />
+  );
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <>
+      <div id="header">
+        <h1>Sandex</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div id="forecast">
+      <table className="styled-table">
+          <thead>
+          <tr>
+            <th>Time</th>
+            <th><span title="Temperature">Temp</span></th>
+            <th><span title="Dewpoint">Dew</span></th>
+          </tr>
+          </thead>
+          <tbody>
+            { listOfHours }
+          </tbody>
+      </table>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div id="wifir">
+        <img src="/wifir.png" alt="The wifir is the logo for 'coworkout', an outdoor co-working group" width="249px" height="249px" />
+      </div>
+      </>
+    </div>
+  );
 }
 
-export default App
+export default App;
