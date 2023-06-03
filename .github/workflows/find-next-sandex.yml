@@ -1,0 +1,39 @@
+name: Find Next Sandex
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 16 * * *
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [13.x]
+
+    steps:
+    - name: Checking out application
+      uses: actions/checkout@v2
+
+    - name: Enabling Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Building application
+      run: yarn install --ignore-engines
+
+    - name: Creating .env file
+      uses: SpicyPizza/create-envfile@v1
+      with:
+        envkey_TWILIO_ACCOUNT_SID: ${{secrets.TWILIO_ACCOUNT_SID}}
+        envkey_TWILIO_AUTH_TOKEN: ${{secrets.TWILIO_AUTH_TOKEN}}
+
+    - name: Viewing .env file
+      run: cat .env
+
+    - name: Finding Sandex
+      run: yarn findNextSandex
