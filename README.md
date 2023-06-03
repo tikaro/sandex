@@ -4,15 +4,13 @@ _"Will the weather be perfect anytime in the next couple of days?"_
 
 The Sandex is the index of how the weather in West Chester, PA compares to the theoretically-perfect weather in San Diego, California in the next couple of days.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2b0386c1-28fc-4dc3-bccc-50578e189008/deploy-status)](https://app.netlify.com/sites/sandex/deploys)
-
 ## Background
 
 "Room Temperature" was invented by professor Ole Fanger. [Here's a PDF link](http://ceae.colorado.edu/~brandem/aren3050/docs/ThermalComfort.pdf) where you can read about it.
 
 This site checks the hourly weather coming up, and sees whether the bounds of temperature and humidity match the parameters for perfect thermal comfort.  
 
-In practice, the weather outside is perfect when:
+By oversimplifying Ole Fanger's rubric, the Sandex deems that the weather outside is perfect when:
 
 * The temperature is between 68 degrees and 76 degrees Fahrenheit, _AND_
 * The relative humidity is between 30 and 60%.
@@ -21,7 +19,7 @@ The box is not square; at 76 degrees, the relative humidity must be lower in ord
 
 ## This used to be a Rails app
 
-There used to be a site at `sandex.me` which used Rails to display a Sandex chart coming up.  That site was powered by the DarkSky API.  The DarkSky API is going away, and these days a full Rails site running on Heroku is overpowered for this application, so John is recreating the Sandex site in React, using another weather API provider to be selected.
+There used to be a site at `sandex.me` which used Rails to display a Sandex chart coming up.  That site was powered by the DarkSky API.  The DarkSky API went away, and these days a full Rails site running on Heroku is overpowered for this application, so John recreated the Sandex site in React, using forecast data from [Tomorrow.io](https://tomorrow.io).
 
 Feel free to contact John with any questions or ridicule at `john.young@gmail.com`
 
@@ -29,11 +27,13 @@ Feel free to contact John with any questions or ridicule at `john.young@gmail.co
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## It is Deployed via Netlify
+## It uses Github Actions to fetch the forecast
 
-Every push to the `main` branch results in a Netlify deployment to https://sandex.netlify.app 
+Every day, a [Github action](https://github.com/tikaro/sandex/actions/runs/5163534089/workflow) runs that fetches the forecast as a blob of JSON from tomorrow.io and commits that blob to the repository.  So there's no API call for the user; it's an API stub that happens to be updated every day.
 
-If you have access to John's Netlify team, you can access the Netlify build at [app.netlify.com/sites/sandex](https://app.netlify.com/sites/sandex/overview)
+## It is Deployed via Vercel
+
+Every push to the `main` branch results in a Vercel deployment to https://sandex.me
 
 ### Local Scripts
 
