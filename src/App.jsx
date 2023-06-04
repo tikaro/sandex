@@ -1,11 +1,8 @@
-import './scss/index.scss';
 import Forecast from './json/forecast.json';
 import HourRow from './components/HourRow.jsx';
 
 const forecast = Forecast;
 const hours = forecast.data.timelines[0].intervals;
-
-
 
 function App() {
 
