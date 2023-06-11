@@ -3,6 +3,8 @@ import calculateHumidityFromDewpoint from '../js/calculateHumidityFromDewpoint.j
 import { temperatureIsSandex, hourIsSandex } from '../js/isSandex.js';
 import { temperatureMessage, sandexMessage } from '../js/sandexMessage.js';
 import { dewpointComfort, dewpointComfortMessage } from '../js/dewpointComfort.js';
+import calculateWetBulbTemp from '../js/calculateWetBulbTemp.js';
+
 
 export default function HourRow({startTime, temperature, dewpoint}) {
     const rowTime = new Date(startTime);
@@ -10,6 +12,7 @@ export default function HourRow({startTime, temperature, dewpoint}) {
     const options = { weekday: 'long', hour: 'numeric' };
 
     const humidity = calculateHumidityFromDewpoint(temperature, dewpoint);
+    const wetbulbtemp = calculateWetBulbTemp(temperature, dewpoint);
     const temperatureIsSandexString = temperatureIsSandex(temperature, humidity).toString();
     const hourIsSandexString = hourIsSandex(temperature, humidity).toString();
 
@@ -34,6 +37,12 @@ export default function HourRow({startTime, temperature, dewpoint}) {
                 <span 
                     title={`${dewpointComfortMessage(dewpoint)} at ${Math.round(dewpoint,0)}°.`} 
                 >{`${Math.round(dewpoint,0)}°`}</span>
+            </td>
+            <td 
+                className={`wetbulb`}>
+                <span 
+                    title="wetbulb" 
+                >{`${Math.round(wetbulbtemp,0)}°`}</span>
             </td>
         </tr>
     );
