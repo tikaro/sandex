@@ -1,0 +1,4 @@
+setupTests.js
+**/src/stories
+**/*.test.jsx
+**/*.test.js
