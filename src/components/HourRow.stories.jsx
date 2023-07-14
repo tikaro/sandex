@@ -56,6 +56,14 @@ export default {
       },
   },
   render: (args) => (<table className="styled-table">
+  <thead>
+  <tr>
+    <th>Time</th>
+    <th><span title="Temperature">Temp</span></th>
+    <th><span title="Dewpoint">Dew</span></th>
+    <th><span title="Wet Bulb">Wet</span></th>
+  </tr>
+  </thead>
   <tbody>
       <HourRow {...args} />
   </tbody>
