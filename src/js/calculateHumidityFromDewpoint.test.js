@@ -1,4 +1,4 @@
-import calculateHumidityFromDewpoint from './calculateHumidityFromDewpoint.mjs';
+import calculateHumidityFromDewpoint from './calculateHumidityFromDewpoint.js';
 
 describe("Relative Humidity ", () => {
     it("is 51 at 67.89 degrees temp and 49.08 degrees dewpoint", () => {

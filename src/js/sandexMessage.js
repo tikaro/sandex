@@ -1,5 +1,5 @@
-import temperatureLowerBound from './temperatureLowerBound.mjs';
-import temperatureUpperBound from './temperatureUpperBound.mjs';
+import temperatureLowerBound from './temperatureLowerBound.js';
+import temperatureUpperBound from './temperatureUpperBound.js';
 
 export function humidityMessage(humidity) {
     const percentageHumidity = (+humidity / 100);

@@ -1,4 +1,4 @@
-import { temperatureIsSandex, humidityIsSandex, hourIsSandex } from './isSandex.mjs';
+import { temperatureIsSandex, humidityIsSandex, hourIsSandex } from './isSandex.js';
 
 describe("hourIsSandex ", () => {
     it("is too humid above 60% humidity", () => {

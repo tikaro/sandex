@@ -1,4 +1,4 @@
-import { humidityMessage, temperatureMessage, sandexMessage } from './sandexMessage.mjs';
+import { humidityMessage, temperatureMessage, sandexMessage } from './sandexMessage.js';
 
 describe("humidityMessage ", () => {
     it("is 'Too humid.' above 60% humidity", () => {
