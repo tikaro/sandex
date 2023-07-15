@@ -128,6 +128,31 @@ body {
       font-weight: bold;
       text-shadow: #fff 0 0 5px;
     }
+
+    td.white-flag {
+      color: $white-flag-text-color;
+      background-color: $white-flag-color;
+    }
+
+    td.green-flag {
+      color: $green-flag-text-color;
+      background-color: $green-flag-color;
+    }
+
+    td.yellow-flag {
+      color: $yellow-flag-text-color;
+      background-color: $yellow-flag-color;
+    }
+
+    td.red-flag {
+      color: $red-flag-text-color;
+      background-color: $red-flag-color;
+    }
+
+    td.black-flag {
+      color: $black-flag-text-color;
+      background-color: $black-flag-color;
+    }
   }
 }
 

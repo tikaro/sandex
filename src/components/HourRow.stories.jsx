@@ -23,6 +23,7 @@ export default {
     startTime: defaultParams.startTime,
     temperature: defaultParams.values.temperature,
     dewpoint: defaultParams.values.dewPoint,
+    wetBulbTemp: 0,
   },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {

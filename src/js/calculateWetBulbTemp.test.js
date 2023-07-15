@@ -1,4 +1,4 @@
-import calculateWetBulbTemp from './calculateWetBulbTemp.mjs';
+import calculateWetBulbTemp from './calculateWetBulbTemp.js';
 
 describe("Wet Bulb temperature ", () => {
     it("is 33 at 42 degrees temp and 15 degrees dewpoint", () => {

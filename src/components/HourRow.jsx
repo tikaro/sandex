@@ -4,7 +4,7 @@ import { temperatureIsSandex, hourIsSandex } from '../js/isSandex.js';
 import { temperatureMessage, sandexMessage } from '../js/sandexMessage.js';
 import { dewpointComfort, dewpointComfortMessage } from '../js/dewpointComfort.js';
 import calculateWetBulbTemp from '../js/calculateWetBulbTemp.js';
-
+import { wetBulbFlagColor } from '../js/wetBulbFlagColor.js';
 
 export default function HourRow({startTime, temperature, dewpoint}) {
     const rowTime = new Date(startTime);
@@ -39,7 +39,7 @@ export default function HourRow({startTime, temperature, dewpoint}) {
                 >{`${Math.round(dewpoint,0)}°`}</span>
             </td>
             <td 
-                className={`wetbulb`}>
+                className={`wetbulb ${wetBulbFlagColor(wetbulbtemp)} }`}>
                 <span 
                     title="wetbulb" 
                 >{`${Math.round(wetbulbtemp,0)}°`}</span>
