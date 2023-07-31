@@ -2,7 +2,7 @@
 
 _"Will the weather be perfect anytime in the next couple of days?"_
 
-The Sandex is the index of how the weather in ~West Chester, PA~ Belfast, Maine (temporarily) compares to the theoretically-perfect weather in San Diego, California in the next couple of days.
+The Sandex is the index of how the weather in West Chester, PA compares to the theoretically-perfect weather in San Diego, California in the next couple of days.
 
 ## Background
 
@@ -21,7 +21,7 @@ The box is not square; at 76 degrees, the relative humidity must be lower in ord
 
 There used to be a site at `sandex.me` which used Rails to display a Sandex chart coming up.  That site was powered by the DarkSky API.  The DarkSky API went away, and these days a full Rails site running on Heroku is overpowered for this application, so John recreated the Sandex site in React, using forecast data from [Tomorrow.io](https://tomorrow.io).
 
-Feel free to contact John with any questions or ridicule at `john.young@gmail.com`
+Feel free to contact John with any questions or ridicule at `john@tikaro.net`
 
 ## Now it is a React App
 
