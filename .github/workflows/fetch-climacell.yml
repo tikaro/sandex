@@ -17,7 +17,7 @@ jobs:
         run: |
           FILE=./src/json/forecast.json
           echo "Fetching today's forecast from Climacell..."
-          url="https://data.climacell.co/v4/timelines?apikey="$CLIMACELL_API_KEY$"&timesteps=1h&location=19380%20US&fields=temperature,dewPoint&units=imperial"
+          url="https://api.tomorrow.io/v4/timelines?apikey="$CLIMACELL_API_KEY$"&timesteps=1h&location=19380%20US&fields=temperature,dewPoint&units=imperial"
           response=$(curl -f "$url")
           status=$?
           if [ $status -eq 0 ]; then
