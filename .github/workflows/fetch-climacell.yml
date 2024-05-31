@@ -1,4 +1,4 @@
-name: Fetch Climacell Forecast
+name: Fetch Tomorrow.io Forecast
 
 on:
   workflow_dispatch:
@@ -11,13 +11,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Fetching the weather forecast from Climacell
+      - name: Fetching the weather forecast from Tomorrow.io
         env:
           CLIMACELL_API_KEY: ${{ secrets.CLIMACELL_API_KEY }}
         run: |
           FILE=./src/json/forecast.json
-          echo "Fetching today's forecast from Climacell..."
-          url="https://api.tomorrow.io/v4/timelines?apikey=$CLIMACELL_API_KEY$"
+          echo "Fetching today's forecast from Tomorrow.io..."
+          url="https://api.tomorrow.io/v4/timelines?apikey="$CLIMACELL_API_KEY$
           response=$(curl --request POST \
             --url $url \
             --compressed \
