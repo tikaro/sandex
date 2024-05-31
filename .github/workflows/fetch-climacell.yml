@@ -12,13 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Fetching the weather forecast from Tomorrow.io
-        env:
-          CLIMACELL_API_KEY: ${{ secrets.CLIMACELL_API_KEY }}
         run: |
           FILE=./src/json/forecast.json
           echo "Fetching today's forecast from Tomorrow.io..."
           response=$(curl --request POST \
-            --url "https://api.tomorrow.io/v4/timelines?apikey="$CLIMACELL_API_KEY$ \
+            --url 'https://api.tomorrow.io/v4/timelines?apikey=${{ secrets.CLIMACELL_API_KEY }}' \
             --compressed \
             --header 'Accept-Encoding: gzip' \
             --header 'accept: application/json' \
