@@ -23,17 +23,17 @@ jobs:
             --header 'content-type: application/json' \
             --data '
             {
-              "location": "19380",
+              "location": "39.985963,-75.622057",
               "fields": [
-                "temperature,dewPoint"
+                "temperature",
+                "dewPoint"
               ],
               "units": "imperial",
               "timesteps": [
-                "string"
+                "1h"
               ],
               "startTime": "now",
-              "endTime": "nowPlus6h",
-              "timezone": "string"
+              "endTime": "nowPlus100h"
             }
             ')
           status=$?
