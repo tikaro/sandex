@@ -17,9 +17,8 @@ jobs:
         run: |
           FILE=./src/json/forecast.json
           echo "Fetching today's forecast from Tomorrow.io..."
-          url="https://api.tomorrow.io/v4/timelines?apikey="$CLIMACELL_API_KEY$
           response=$(curl --request POST \
-            --url $url \
+            --url "https://api.tomorrow.io/v4/timelines?apikey="$CLIMACELL_API_KEY$ \
             --compressed \
             --header 'Accept-Encoding: gzip' \
             --header 'accept: application/json' \
