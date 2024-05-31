@@ -1,1 +1,1 @@
-{"code":401001,"type":"Invalid Auth","message":"The method requires authentication but it was not presented or is invalid."}
+{"code":400001,"type":"Invalid Body Parameters","message":"The entries provided as body parameters were not valid for the request. Fix Body and try again: 'location' - failed to query by the term '19380', try a different term"}
