@@ -2,7 +2,7 @@
 
 _"Will the weather be perfect anytime in the next couple of days?"_
 
-The Sandex is the index of how the weather in ~West Chester, PA~ Ogunquit, ME compares to the theoretically-perfect weather in San Diego, California in the next couple of days.
+The Sandex is the index of how the weather in West Chester, PA compares to the theoretically-perfect weather in San Diego, California in the next couple of days.
 
 ## Background
 
