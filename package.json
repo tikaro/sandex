@@ -8,10 +8,7 @@
     "build": "vite build",
     "lint": "eslint src --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "vitest",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "chromatic": "npx chromatic"
+    "test": "vitest"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -19,26 +16,20 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@storybook/addon-links": "^10.2.10",
-    "@storybook/react": "^10.2.10",
-    "@storybook/react-vite": "^10.2.10",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^5.1.4",
-    "chromatic": "^15.1.1",
     "eslint": "^10.0.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.26",
-    "eslint-plugin-storybook": "^10.2.10",
     "globals": "^17.3.0",
     "jsdom": "^28.1.0",
     "prop-types": "^15.8.1",
     "sass": "^1.97.3",
-    "storybook": "^10.2.10",
     "vite": "^7.3.1",
     "vitest": "^4.0.18"
   },
