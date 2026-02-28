@@ -8,18 +8,18 @@ The Sandex is the index of how the weather in West Chester, PA compares to the t
 
 "Room Temperature" was invented by professor Ole Fanger. [Here's a PDF link](http://ceae.colorado.edu/~brandem/aren3050/docs/ThermalComfort.pdf) where you can read about it.
 
-This site checks the hourly weather coming up, and sees whether the bounds of temperature and humidity match the parameters for perfect thermal comfort.  
+This site checks the hourly weather coming up, and sees whether the bounds of temperature and humidity match the parameters for perfect thermal comfort.
 
 By oversimplifying Ole Fanger's rubric, the Sandex deems that the weather outside is perfect when:
 
-* The temperature is between 68 degrees and 76 degrees Fahrenheit, _AND_
-* The relative humidity is between 30 and 60%.
+- The temperature is between 68 degrees and 76 degrees Fahrenheit, _AND_
+- The relative humidity is between 30 and 60%.
 
 The box is not square; at 76 degrees, the relative humidity must be lower in order to be perfectly comfortable.
 
 ## This used to be a Rails app
 
-There used to be a site at `sandex.me` which used Rails to display a Sandex chart coming up.  That site was powered by the DarkSky API.  The DarkSky API went away, and these days a full Rails site running on Heroku is overpowered for this application, so John recreated the Sandex site in React, using forecast data from [Tomorrow.io](https://tomorrow.io).
+There used to be a site at `sandex.me` which used Rails to display a Sandex chart coming up. That site was powered by the DarkSky API. The DarkSky API went away, and these days a full Rails site running on Heroku is overpowered for this application, so John recreated the Sandex site in React, using forecast data from Climacell (which changed its name to Tomorrow.io), and then changed the forecast data source again to [Open-Meteo](https://open-meteo.com/).
 
 Feel free to contact John with any questions or ridicule at `john@tikaro.net`
 
@@ -29,7 +29,7 @@ This project was bootstrapped first with [Create React App](https://github.com/f
 
 ## It uses Github Actions to fetch the forecast
 
-Every day, a [Github action](https://github.com/tikaro/sandex/actions/runs/5163534089/workflow) fetches the forecast as a blob of JSON from tomorrow.io and commits that blob to the repository.  So there's no API call for the user; it's an API stub that happens to be updated every day.
+Every day, a [Github action](https://github.com/tikaro/sandex/actions/workflows/fetch-openmeteo.yml) fetches the forecast as a blob of JSON from Open-Meteo and commits that blob to the repository. So there's no API call for the user; it's an API stub that happens to be updated every day.
 
 ## It is Deployed via Vercel
 
