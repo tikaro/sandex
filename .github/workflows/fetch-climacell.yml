@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: 0 12 * * *
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Fetching the weather forecast from Tomorrow.io
         run: |
-          FILE=./src/json/forecast.json
+          FILE=./src/json/forecast-tomorrowio.json
           echo "Fetching today's forecast from Tomorrow.io..."
           response=$(curl --request POST \
             --url 'https://api.tomorrow.io/v4/timelines?apikey=${{ secrets.CLIMACELL_API_KEY }}' \
@@ -46,14 +46,14 @@ jobs:
           fi
       - name: Committing changes to git
         env:
-          GIT_OWNER_EMAIL: ${{ secrets.GIT_OWNER_EMAIL }} 
+          GIT_OWNER_EMAIL: ${{ secrets.GIT_OWNER_EMAIL }}
           PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
         run: |
           git config user.email "$GIT_OWNER_EMAIL"
           git config user.name "tikaro"
           if [[ `git status --porcelain` ]]; then
             git add .
-            git commit -a -m "Update forecast data from Climacell API"
+            git commit -a -m "Update forecast data from Tomorrow.io"
             git remote rm origin
             git remote add origin https://tikaro:$PUSH_TOKEN@github.com/tikaro/sandex.git
             git push origin HEAD:main
