@@ -1,5 +1,6 @@
 import ReactECharts from "echarts-for-react";
 import { useMemo } from "react";
+import SunCalc from "suncalc";
 import calculateHumidityFromDewpoint from "../js/calculateHumidityFromDewpoint.js";
 import { hourIsSandex, temperatureIsSandex } from "../js/isSandex.js";
 
@@ -14,14 +15,54 @@ function formatXAxisLabel(startTime) {
   });
 }
 
-export default function ForecastChart({ hours }) {
+function isNightHour(date, latitude, longitude) {
+  const sunriseToday = SunCalc.getTimes(date, latitude, longitude).sunrise;
+  const sunsetToday = SunCalc.getTimes(date, latitude, longitude).sunset;
+
+  return date < sunriseToday || date >= sunsetToday;
+}
+
+export default function ForecastChart({ hours, latitude, longitude }) {
   const canRenderChart =
     typeof window !== "undefined" && typeof ResizeObserver !== "undefined";
 
   const option = useMemo(() => {
     const labels = hours.map((hour) => formatXAxisLabel(hour.startTime));
+    const hourDates = hours.map((hour) => new Date(hour.startTime));
     const temperatures = hours.map((hour) => hour.temperature);
     const dewpoints = hours.map((hour) => hour.dewpoint);
+    const nightHours = hours.map((hour, index) => {
+      if (typeof latitude !== "number" || typeof longitude !== "number") {
+        return false;
+      }
+
+      return isNightHour(hourDates[index], latitude, longitude);
+    });
+    const nightTimeRanges = [];
+    let nightRangeStartIndex = null;
+
+    nightHours.forEach((isNight, index) => {
+      const isLast = index === nightHours.length - 1;
+
+      if (isNight && nightRangeStartIndex === null) {
+        nightRangeStartIndex = index;
+      }
+
+      if ((!isNight || isLast) && nightRangeStartIndex !== null) {
+        const rangeEndIndex = isNight && isLast ? index : index - 1;
+
+        nightTimeRanges.push([
+          {
+            xAxis: labels[nightRangeStartIndex],
+          },
+          {
+            xAxis: labels[rangeEndIndex],
+          },
+        ]);
+
+        nightRangeStartIndex = null;
+      }
+    });
     const humidityValues = hours.map((hour) =>
       calculateHumidityFromDewpoint(hour.temperature, hour.dewpoint),
     );
@@ -85,7 +126,7 @@ export default function ForecastChart({ hours }) {
       visualMap: {
         show: false,
         type: "piecewise",
-        seriesIndex: [1, 3],
+        seriesIndex: [2, 4],
         dimension: 1,
         pieces: [
           { lt: 50, color: "#0CF" },
@@ -113,7 +154,21 @@ export default function ForecastChart({ hours }) {
           show: false,
         },
         axisLabel: {
-          show: false,
+          show: true,
+          interval: 0,
+          color: "#333",
+          margin: 12,
+          formatter: (_, index) => {
+            const hourDate = hourDates[index];
+
+            if (!hourDate || hourDate.getHours() !== 12) {
+              return "";
+            }
+
+            return hourDate
+              .toLocaleDateString("en-US", { weekday: "long" })
+              .charAt(0);
+          },
         },
       },
       yAxis: {
@@ -121,12 +176,36 @@ export default function ForecastChart({ hours }) {
       },
       series: [
         {
+          name: "Night",
+          type: "line",
+          data: [],
+          showSymbol: false,
+          lineStyle: {
+            width: 0,
+          },
+          tooltip: {
+            show: false,
+          },
+          markArea: {
+            silent: true,
+            itemStyle: {
+              color: "rgba(52, 78, 140, 0.04)",
+              shadowBlur: 6,
+              shadowColor: "rgba(52, 78, 140, 0.06)",
+            },
+            data: nightTimeRanges,
+          },
+          z: 0,
+        },
+        {
           name: "Temperature",
           type: "line",
           smooth: true,
+          showSymbol: false,
           data: temperatures,
           lineStyle: {
             width: 2,
+            color: "#000",
           },
           markArea: {
             silent: true,
@@ -140,6 +219,7 @@ export default function ForecastChart({ hours }) {
           name: "Dewpoint",
           type: "line",
           smooth: true,
+          showSymbol: false,
           data: dewpointSeriesData,
           lineStyle: {
             width: 2,
@@ -154,7 +234,7 @@ export default function ForecastChart({ hours }) {
           connectNulls: false,
           lineStyle: {
             width: 6,
-            color: "#5470C6",
+            color: "#0C0",
           },
           tooltip: {
             show: false,
@@ -178,7 +258,7 @@ export default function ForecastChart({ hours }) {
         },
       ],
     };
-  }, [hours]);
+  }, [hours, latitude, longitude]);
 
   if (!canRenderChart) {
     return null;

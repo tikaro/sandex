@@ -2,13 +2,16 @@ import Forecast from "./json/forecast-openmeteo.json";
 import ForecastChart from "./components/ForecastChart.jsx";
 
 const forecast = Forecast;
-const hours = forecast.hourly.time.map((startTime, index) => ({
+const allHours = forecast.hourly.time.map((startTime, index) => ({
   startTime,
   temperature: forecast.hourly.temperature_2m[index],
   dewpoint: forecast.hourly.dew_point_2m[index],
 }));
 
 function App() {
+  const now = new Date();
+  const hours = allHours.filter((hour) => new Date(hour.startTime) >= now);
+
   return (
     <div className="App">
       <>
@@ -16,7 +19,11 @@ function App() {
           <h1>Sandex</h1>
         </div>
         <div id="forecast">
-          <ForecastChart hours={hours} />
+          <ForecastChart
+            hours={hours}
+            latitude={forecast.latitude}
+            longitude={forecast.longitude}
+          />
         </div>
         <div id="wifir">
           <img
