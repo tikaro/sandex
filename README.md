@@ -31,6 +31,18 @@ This project was bootstrapped first with [Create React App](https://github.com/f
 
 Every day, a [Github action](https://github.com/tikaro/sandex/actions/workflows/fetch-openmeteo.yml) fetches the forecast as a blob of JSON from Open-Meteo and commits that blob to the repository. So there's no API call for the user; it's an API stub that happens to be updated every day.
 
+## Location support
+
+By default (no query parameters), the app displays weather for **West Chester, Pennsylvania**. The forecast data is loaded from the bundled `src/json/forecast-openmeteo.json` file that is refreshed daily by the GitHub Action described above — no API calls are made at page load time.
+
+When a `?zip=XXXXX` query parameter is present in the URL (e.g. `/?zip=76006`), the app:
+
+1. Looks up the place name, latitude, and longitude for that zip code using [Zippopotam.us](https://api.zippopotam.us) (no API key required).
+2. Fetches a live weather forecast for that location from the [Open-Meteo](https://open-meteo.com/) forecast API using the same parameters as the daily GitHub Action workflow.
+3. Displays the Sandex chart with the resolved place name shown in the subhead (e.g. "Displaying upcoming weather for Arlington, Texas.")
+
+If either the geocoding or forecast request fails, an error message is displayed in place of the chart.
+
 ## It is Deployed via Vercel
 
 Every push to the `main` branch results in a Vercel deployment to https://sandex.me
