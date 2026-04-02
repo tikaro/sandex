@@ -121,8 +121,8 @@ function App() {
           <img
             src="/wifir.png"
             alt="The wifir is the logo for 'coworkout', an outdoor co-working group"
-            width="249px"
-            height="249px"
+            width="75px"
+            height="75px"
           />
         </div>
       </>
