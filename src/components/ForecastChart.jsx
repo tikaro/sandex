@@ -119,6 +119,10 @@ export default function ForecastChart({ hours, latitude, longitude }) {
       hour.dewpoint,
     ]);
 
+    const allValues = [...temperatures, ...dewpoints];
+    const yAxisMin = Math.floor(Math.min(...allValues) / 5) * 5;
+    const yAxisMax = Math.ceil(Math.max(...allValues) / 5) * 5;
+
     return {
       tooltip: {
         trigger: "axis",
@@ -173,6 +177,8 @@ export default function ForecastChart({ hours, latitude, longitude }) {
       },
       yAxis: {
         type: "value",
+        min: yAxisMin,
+        max: yAxisMax,
       },
       series: [
         {
