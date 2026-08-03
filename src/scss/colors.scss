@@ -8,11 +8,21 @@ $gray-1: #CCC;
 $gray-2: #EEE;
 $gray-3: #FFF;
 
+:root {
+  --dewpoint-very-dry-color: #0CF;
+  --dewpoint-dry-color: #0F0;
+  --dewpoint-comfortable-color: #FFCC03;
+  --dewpoint-humid-color: #FE9901;
+  --dewpoint-muggy-color: #FF6500;
+  --dewpoint-oppressive-color: #FE0000;
+  --dewpoint-miserable-color: #820204;
+}
+
 // dewpoint colors
-$dewpoint-very-dry-color: #0CF;
-$dewpoint-dry-color: #0F0;
-$dewpoint-comfortable-color: #FFCC03;
-$dewpoint-humid-color: #FE9901;
-$dewpoint-muggy-color: #FF6500;
-$dewpoint-oppressive-color: #FE0000;
-$dewpoint-miserable-color: #820204;
+$dewpoint-very-dry-color: var(--dewpoint-very-dry-color);
+$dewpoint-dry-color: var(--dewpoint-dry-color);
+$dewpoint-comfortable-color: var(--dewpoint-comfortable-color);
+$dewpoint-humid-color: var(--dewpoint-humid-color);
+$dewpoint-muggy-color: var(--dewpoint-muggy-color);
+$dewpoint-oppressive-color: var(--dewpoint-oppressive-color);
+$dewpoint-miserable-color: var(--dewpoint-miserable-color);

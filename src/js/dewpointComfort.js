@@ -23,13 +23,13 @@ export function dewpointComfortMessage(dewpoint) {
 
 // Single source of truth for dewpoint comfort colors, shared by chart and cards.
 export const DEWPOINT_COLORS = {
-    "very-dry":    "#0CF",
-    "dry":         "#0F0",
-    "comfortable": "#FFCC03",
-    "humid":       "#FE9901",
-    "muggy":       "#FF6500",
-    "oppressive":  "#FE0000",
-    "miserable":   "#820204",
+    "very-dry":    "var(--dewpoint-very-dry-color)",
+    "dry":         "var(--dewpoint-dry-color)",
+    "comfortable": "var(--dewpoint-comfortable-color)",
+    "humid":       "var(--dewpoint-humid-color)",
+    "muggy":       "var(--dewpoint-muggy-color)",
+    "oppressive":  "var(--dewpoint-oppressive-color)",
+    "miserable":   "var(--dewpoint-miserable-color)",
 };
 
 export function dewpointColor(dewpoint) {
