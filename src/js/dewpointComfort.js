@@ -20,3 +20,29 @@ export function dewpointComfortMessage(dewpoint) {
     comfort = comfort.replace(/-/g, ' ');
     return comfort.charAt(0).toUpperCase() + comfort.slice(1);
 }
+
+// Single source of truth for dewpoint comfort colors, shared by chart and cards.
+export const DEWPOINT_COLORS = {
+    "very-dry":    "#0CF",
+    "dry":         "#0F0",
+    "comfortable": "#FFCC03",
+    "humid":       "#FE9901",
+    "muggy":       "#FF6500",
+    "oppressive":  "#FE0000",
+    "miserable":   "#820204",
+};
+
+export function dewpointColor(dewpoint) {
+    return DEWPOINT_COLORS[dewpointComfort(dewpoint)];
+}
+
+// ECharts piecewise visualMap pieces derived from the same boundaries and colors.
+export const DEWPOINT_CHART_PIECES = [
+    { lt: 50,              color: DEWPOINT_COLORS["very-dry"] },
+    { gte: 50, lt: 56,     color: DEWPOINT_COLORS["dry"] },
+    { gte: 56, lt: 61,     color: DEWPOINT_COLORS["comfortable"] },
+    { gte: 61, lt: 66,     color: DEWPOINT_COLORS["humid"] },
+    { gte: 66, lt: 71,     color: DEWPOINT_COLORS["muggy"] },
+    { gte: 71, lt: 76,     color: DEWPOINT_COLORS["oppressive"] },
+    { gte: 76,             color: DEWPOINT_COLORS["miserable"] },
+];

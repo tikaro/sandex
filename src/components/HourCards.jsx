@@ -2,7 +2,7 @@ import { useRef, useCallback, useEffect } from "react";
 import SunCalc from "suncalc";
 import calculateHumidityFromDewpoint from "../js/calculateHumidityFromDewpoint.js";
 import { hourIsSandex } from "../js/isSandex.js";
-import { dewpointComfort } from "../js/dewpointComfort.js";
+import { dewpointComfort, dewpointColor } from "../js/dewpointComfort.js";
 
 const CARD_WIDTH = 76;
 const CARD_GAP_DESKTOP = 10;
@@ -19,16 +19,16 @@ function isNightHour(date, latitude, longitude) {
 
 function getDewpointChipStyle(dewpoint) {
   const category = dewpointComfort(dewpoint);
-  const styles = {
-    "very-dry":    { backgroundColor: "#0CF", color: "#111" },
-    "dry":         { backgroundColor: "#0F0", color: "#111" },
-    "comfortable": { backgroundColor: "#FFCC03", color: "transparent", textShadow: "#111 0 0 1px" },
-    "humid":       { backgroundColor: "#FE9901", color: "transparent", textShadow: "#111 0 0 2px" },
-    "muggy":       { backgroundColor: "#FF6500", color: "transparent", textShadow: "#111 0 0 3px" },
-    "oppressive":  { backgroundColor: "#FE0000", color: "transparent", textShadow: "#111 0 0 4px" },
-    "miserable":   { backgroundColor: "#820204", color: "transparent", fontWeight: "bold", textShadow: "#fff 0 0 5px" },
+  const textStyles = {
+    "very-dry":    { color: "#111" },
+    "dry":         { color: "#111" },
+    "comfortable": { color: "transparent", textShadow: "#111 0 0 1px" },
+    "humid":       { color: "transparent", textShadow: "#111 0 0 2px" },
+    "muggy":       { color: "transparent", textShadow: "#111 0 0 3px" },
+    "oppressive":  { color: "transparent", textShadow: "#111 0 0 4px" },
+    "miserable":   { color: "transparent", fontWeight: "bold", textShadow: "#fff 0 0 5px" },
   };
-  return styles[category] || {};
+  return { backgroundColor: dewpointColor(dewpoint), ...textStyles[category] };
 }
 
 function formatCardLabel(date) {

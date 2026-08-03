@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import SunCalc from "suncalc";
 import calculateHumidityFromDewpoint from "../js/calculateHumidityFromDewpoint.js";
 import { hourIsSandex, temperatureIsSandex } from "../js/isSandex.js";
+import { DEWPOINT_CHART_PIECES } from "../js/dewpointComfort.js";
 
 function formatXAxisLabel(startTime) {
   const date = new Date(startTime);
@@ -142,17 +143,9 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
       visualMap: {
         show: false,
         type: "piecewise",
-        seriesIndex: [2, 4],
+        seriesIndex: [3, 5],
         dimension: 1,
-        pieces: [
-          { lt: 50, color: "#0CF" },
-          { gte: 50, lt: 56, color: "#0F0" },
-          { gte: 56, lt: 61, color: "#FFCC03" },
-          { gte: 61, lt: 66, color: "#FE9901" },
-          { gte: 66, lt: 71, color: "#FF6500" },
-          { gte: 71, lt: 76, color: "#FE0000" },
-          { gte: 76, color: "#820204" },
-        ],
+        pieces: DEWPOINT_CHART_PIECES,
       },
       grid: {
         left: 40,
