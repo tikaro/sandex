@@ -139,6 +139,7 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         : [];
 
     return {
+      animation: false,
       tooltip: {
         trigger: "axis",
       },
@@ -266,7 +267,6 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         {
           name: "Temperature (Sandex)",
           type: "line",
-          smooth: true,
           data: sandexTemperatureSeriesData,
           showSymbol: false,
           connectNulls: false,
@@ -282,7 +282,6 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         {
           name: "Dewpoint (Sandex)",
           type: "line",
-          smooth: true,
           data: sandexDewpointSeriesData,
           showSymbol: false,
           connectNulls: false,
