@@ -111,25 +111,15 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
     const sandexTemperatureSeriesData = hours.map((hour, index) => {
       const humidity = humidityValues[index];
 
-      if (!temperatureIsSandex(hour.temperature, humidity)) {
-        return [labels[index], null];
-      }
-
-      return [labels[index], hour.temperature];
+      return temperatureIsSandex(hour.temperature, humidity)
+        ? hour.temperature
+        : null;
     });
     const sandexDewpointSeriesData = hours.map((hour, index) => {
       const humidity = humidityValues[index];
 
-      if (!hourIsSandex(hour.temperature, humidity)) {
-        return [labels[index], null];
-      }
-
-      return [labels[index], hour.dewpoint];
+      return hourIsSandex(hour.temperature, humidity) ? hour.dewpoint : null;
     });
-    const dewpointSeriesData = hours.map((hour, index) => [
-      labels[index],
-      hour.dewpoint,
-    ]);
 
     const allValues = [...temperatures, ...dewpoints];
     const yAxisMin = Math.floor(Math.min(...allValues) / 5) * 5;
@@ -265,7 +255,7 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
           type: "line",
           smooth: true,
           showSymbol: false,
-          data: dewpointSeriesData,
+          data: dewpoints,
           tooltip: {
             valueFormatter: formatRoundedFahrenheit,
           },
@@ -319,6 +309,7 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         option={option}
         opts={{ renderer: "svg" }}
         style={{ height: 320, width: "100%" }}
+        notMerge={true}
       />
     </div>
   );

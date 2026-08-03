@@ -43,8 +43,8 @@ describe("ForecastChart tooltip formatting", () => {
 
     expect(temperatureFormatter(74.6)).toBe("75°F");
     expect(temperatureFormatter(74.4)).toBe("74°F");
-    expect(dewpointFormatter(["label", 70.6])).toBe("71°F");
-    expect(dewpointFormatter(["label", 70.4])).toBe("70°F");
+    expect(dewpointFormatter(70.6)).toBe("71°F");
+    expect(dewpointFormatter(70.4)).toBe("70°F");
   });
 });
 
