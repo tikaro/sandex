@@ -22,13 +22,12 @@ function isNightHour(date, latitude, longitude) {
   return date < sunriseToday || date >= sunsetToday;
 }
 
-export default function ForecastChart({ hours, latitude, longitude }) {
+export default function ForecastChart({ hours, latitude, longitude, visibleWindow }) {
   const canRenderChart =
     typeof window !== "undefined" && typeof ResizeObserver !== "undefined";
 
   const option = useMemo(() => {
-    const labels = hours.map((hour) => formatXAxisLabel(hour.startTime));
-    const hourDates = hours.map((hour) => new Date(hour.startTime));
+    const labels = hours.map((hour) => formatXAxisLabel(hour.startTime));    const hourDates = hours.map((hour) => new Date(hour.startTime));
     const temperatures = hours.map((hour) => hour.temperature);
     const dewpoints = hours.map((hour) => hour.dewpoint);
     const nightHours = hours.map((hour, index) => {
@@ -123,6 +122,19 @@ export default function ForecastChart({ hours, latitude, longitude }) {
     const yAxisMin = Math.floor(Math.min(...allValues) / 5) * 5;
     const yAxisMax = Math.ceil(Math.max(...allValues) / 5) * 5;
 
+    const viewportWindowData =
+      visibleWindow &&
+      visibleWindow.start >= 0 &&
+      visibleWindow.end >= visibleWindow.start &&
+      visibleWindow.start < labels.length
+        ? [
+            [
+              { xAxis: labels[visibleWindow.start] },
+              { xAxis: labels[Math.min(visibleWindow.end, labels.length - 1)] },
+            ],
+          ]
+        : [];
+
     return {
       tooltip: {
         trigger: "axis",
@@ -204,6 +216,25 @@ export default function ForecastChart({ hours, latitude, longitude }) {
           z: 0,
         },
         {
+          name: "Viewport Window",
+          type: "line",
+          data: [],
+          showSymbol: false,
+          lineStyle: { width: 0 },
+          tooltip: { show: false },
+          markArea: {
+            silent: true,
+            itemStyle: {
+              color: "rgba(30,60,114,0.10)",
+              borderColor: "#2b4d8f",
+              borderWidth: 1.5,
+              borderType: [4, 3],
+            },
+            data: viewportWindowData,
+          },
+          z: 1,
+        },
+        {
           name: "Temperature",
           type: "line",
           smooth: true,
@@ -264,7 +295,7 @@ export default function ForecastChart({ hours, latitude, longitude }) {
         },
       ],
     };
-  }, [hours, latitude, longitude]);
+  }, [hours, latitude, longitude, visibleWindow]);
 
   if (!canRenderChart) {
     return null;

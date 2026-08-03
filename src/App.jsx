@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import DefaultForecast from "./json/forecast-openmeteo.json";
 import ForecastChart from "./components/ForecastChart.jsx";
+import HourCards from "./components/HourCards.jsx";
 
 const DEFAULT_LOCATION_NAME = "West Chester, Pennsylvania";
 const DEFAULT_LATITUDE = DefaultForecast.latitude;
@@ -61,6 +62,17 @@ function App() {
     parseForecastHours(DefaultForecast),
   );
   const [error, setError] = useState(null);
+  const [hourCount, setHourCount] = useState(48);
+  const [visibleWindow, setVisibleWindow] = useState(null);
+
+  const handleVisibleWindowChange = useCallback((window) => {
+    setVisibleWindow((prev) => {
+      if (prev && prev.start === window.start && prev.end === window.end) {
+        return prev;
+      }
+      return window;
+    });
+  }, []);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -97,7 +109,15 @@ function App() {
   }, []);
 
   const now = new Date();
-  const hours = allHours.filter((hour) => new Date(hour.startTime) >= now);
+  const futureHours = allHours.filter((hour) => new Date(hour.startTime) >= now);
+  const hours = futureHours.slice(0, hourCount);
+
+  const RANGE_OPTIONS = [
+    { label: "24h", value: 24 },
+    { label: "48h", value: 48 },
+    { label: "3 days", value: 72 },
+    { label: "7 days", value: 168 },
+  ];
 
   return (
     <div className="App">
@@ -110,11 +130,31 @@ function App() {
           {error ? (
             <p id="forecast-error" role="alert">{error}</p>
           ) : (
-            <ForecastChart
-              hours={hours}
-              latitude={latitude}
-              longitude={longitude}
-            />
+            <>
+              <ForecastChart
+                hours={hours}
+                latitude={latitude}
+                longitude={longitude}
+                visibleWindow={visibleWindow}
+              />
+              <div id="hour-range-control">
+                {RANGE_OPTIONS.map((opt) => (
+                  <button
+                    key={opt.value}
+                    className={`range-pill${hourCount === opt.value ? " range-pill-active" : ""}`}
+                    onClick={() => setHourCount(opt.value)}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+              <HourCards
+                hours={hours}
+                latitude={latitude}
+                longitude={longitude}
+                onVisibleWindowChange={handleVisibleWindowChange}
+              />
+            </>
           )}
         </div>
         <div id="wifir">
