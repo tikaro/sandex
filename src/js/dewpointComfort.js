@@ -32,8 +32,8 @@ export const DEWPOINT_COLORS = {
     "miserable":   "var(--dewpoint-miserable-color)",
 };
 
-export function dewpointColor(dewpoint) {
-    return DEWPOINT_COLORS[dewpointComfort(dewpoint)];
+export function dewpointColor(dewpoint, comfort = dewpointComfort(dewpoint)) {
+    return DEWPOINT_COLORS[comfort];
 }
 
 // ECharts piecewise visualMap pieces derived from the same boundaries and colors.

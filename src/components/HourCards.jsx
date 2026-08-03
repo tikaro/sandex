@@ -28,7 +28,7 @@ function getDewpointChipStyle(dewpoint) {
     "oppressive":  { color: "transparent", textShadow: "#111 0 0 4px" },
     "miserable":   { color: "transparent", fontWeight: "bold", textShadow: "#fff 0 0 5px" },
   };
-  return { backgroundColor: dewpointColor(dewpoint), ...textStyles[category] };
+  return { backgroundColor: dewpointColor(dewpoint, category), ...textStyles[category] };
 }
 
 function formatCardLabel(date) {
