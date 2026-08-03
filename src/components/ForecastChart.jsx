@@ -191,6 +191,7 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         {
           name: "Night",
           type: "line",
+          animation: false,
           data: [],
           showSymbol: false,
           lineStyle: {
@@ -213,6 +214,7 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         {
           name: "Temperature",
           type: "line",
+          animation: false,
           smooth: true,
           showSymbol: false,
           data: temperatures,
@@ -234,6 +236,7 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         {
           name: "Dewpoint",
           type: "line",
+          animation: false,
           smooth: true,
           showSymbol: false,
           data: dewpoints,
@@ -250,6 +253,7 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         {
           name: "Temperature (Sandex)",
           type: "line",
+          animation: false,
           data: sandexTemperatureSeriesData,
           showSymbol: false,
           connectNulls: false,
@@ -265,6 +269,7 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         {
           name: "Dewpoint (Sandex)",
           type: "line",
+          animation: false,
           data: sandexDewpointSeriesData,
           showSymbol: false,
           connectNulls: false,
