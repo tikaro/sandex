@@ -30,6 +30,21 @@ afterAll(() => {
   global.ResizeObserver = originalResizeObserver;
 });
 
+describe("ForecastChart with empty hours", () => {
+  it("renders without crashing when hours is empty", () => {
+    expect(() =>
+      render(
+        <ForecastChart
+          hours={[]}
+          latitude={39.96}
+          longitude={-75.61}
+          visibleWindow={null}
+        />,
+      ),
+    ).not.toThrow();
+  });
+});
+
 describe("ForecastChart tooltip formatting", () => {
   it("rounds chart overlay values to the nearest whole degree fahrenheit", () => {
     render(

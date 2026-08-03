@@ -134,8 +134,8 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
     });
 
     const allValues = [...temperatures, ...dewpoints];
-    const yAxisMin = Math.floor(Math.min(...allValues) / 5) * 5;
-    const yAxisMax = Math.ceil(Math.max(...allValues) / 5) * 5;
+    const yAxisMin = allValues.length > 0 ? Math.floor(Math.min(...allValues) / 5) * 5 : 0;
+    const yAxisMax = allValues.length > 0 ? Math.ceil(Math.max(...allValues) / 5) * 5 : 100;
 
     return {
       animation: false,
