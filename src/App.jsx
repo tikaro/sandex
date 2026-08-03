@@ -63,6 +63,7 @@ function App() {
   );
   const [error, setError] = useState(null);
   const [hourCount, setHourCount] = useState(48);
+
   const [visibleWindow, setVisibleWindow] = useState(null);
 
   const handleVisibleWindowChange = useCallback((window) => {
@@ -113,8 +114,7 @@ function App() {
   const hours = futureHours.slice(0, hourCount);
 
   const RANGE_OPTIONS = [
-    { label: "24h", value: 24 },
-    { label: "48h", value: 48 },
+    { label: "2 days", value: 48 },
     { label: "3 days", value: 72 },
     { label: "7 days", value: 168 },
   ];

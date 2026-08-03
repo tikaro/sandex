@@ -1,5 +1,5 @@
 import ReactECharts from "echarts-for-react";
-import { useMemo } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 import SunCalc from "suncalc";
 import calculateHumidityFromDewpoint from "../js/calculateHumidityFromDewpoint.js";
 import { hourIsSandex, temperatureIsSandex } from "../js/isSandex.js";
@@ -38,6 +38,18 @@ function formatRoundedFahrenheit(value) {
 export default function ForecastChart({ hours, latitude, longitude, visibleWindow }) {
   const canRenderChart =
     typeof window !== "undefined" && typeof ResizeObserver !== "undefined";
+
+  const containerRef = useRef(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+
+  useEffect(() => {
+    if (!canRenderChart || !containerRef.current) return;
+    const el = containerRef.current;
+    setContainerWidth(el.offsetWidth);
+    const ro = new ResizeObserver(() => setContainerWidth(el.offsetWidth));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [canRenderChart]);
 
   const option = useMemo(() => {
     const labels = hours.map((hour) => formatXAxisLabel(hour.startTime));    const hourDates = hours.map((hour) => new Date(hour.startTime));
@@ -111,51 +123,29 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
     const sandexTemperatureSeriesData = hours.map((hour, index) => {
       const humidity = humidityValues[index];
 
-      if (!temperatureIsSandex(hour.temperature, humidity)) {
-        return [labels[index], null];
-      }
-
-      return [labels[index], hour.temperature];
+      return temperatureIsSandex(hour.temperature, humidity)
+        ? hour.temperature
+        : null;
     });
     const sandexDewpointSeriesData = hours.map((hour, index) => {
       const humidity = humidityValues[index];
 
-      if (!hourIsSandex(hour.temperature, humidity)) {
-        return [labels[index], null];
-      }
-
-      return [labels[index], hour.dewpoint];
+      return hourIsSandex(hour.temperature, humidity) ? hour.dewpoint : null;
     });
-    const dewpointSeriesData = hours.map((hour, index) => [
-      labels[index],
-      hour.dewpoint,
-    ]);
 
     const allValues = [...temperatures, ...dewpoints];
     const yAxisMin = Math.floor(Math.min(...allValues) / 5) * 5;
     const yAxisMax = Math.ceil(Math.max(...allValues) / 5) * 5;
 
-    const viewportWindowData =
-      visibleWindow &&
-      visibleWindow.start >= 0 &&
-      visibleWindow.end >= visibleWindow.start &&
-      visibleWindow.start < labels.length
-        ? [
-            [
-              { xAxis: labels[visibleWindow.start] },
-              { xAxis: labels[Math.min(visibleWindow.end, labels.length - 1)] },
-            ],
-          ]
-        : [];
-
     return {
+      animation: false,
       tooltip: {
         trigger: "axis",
       },
       visualMap: {
         show: false,
         type: "piecewise",
-        seriesIndex: [3, 5],
+        seriesIndex: [2, 4],
         dimension: 1,
         pieces: DEWPOINT_CHART_PIECES,
       },
@@ -221,25 +211,6 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
           z: 0,
         },
         {
-          name: "Viewport Window",
-          type: "line",
-          data: [],
-          showSymbol: false,
-          lineStyle: { width: 0 },
-          tooltip: { show: false },
-          markArea: {
-            silent: true,
-            itemStyle: {
-              color: "rgba(30,60,114,0.10)",
-              borderColor: "#2b4d8f",
-              borderWidth: 1.5,
-              borderType: [4, 3],
-            },
-            data: viewportWindowData,
-          },
-          z: 1,
-        },
-        {
           name: "Temperature",
           type: "line",
           smooth: true,
@@ -265,18 +236,20 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
           type: "line",
           smooth: true,
           showSymbol: false,
-          data: dewpointSeriesData,
+          data: dewpoints,
           tooltip: {
             valueFormatter: formatRoundedFahrenheit,
           },
           lineStyle: {
             width: 2,
           },
+          emphasis: {
+            disabled: true,
+          },
         },
         {
           name: "Temperature (Sandex)",
           type: "line",
-          smooth: true,
           data: sandexTemperatureSeriesData,
           showSymbol: false,
           connectNulls: false,
@@ -292,7 +265,6 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         {
           name: "Dewpoint (Sandex)",
           type: "line",
-          smooth: true,
           data: sandexDewpointSeriesData,
           showSymbol: false,
           connectNulls: false,
@@ -306,19 +278,51 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         },
       ],
     };
-  }, [hours, latitude, longitude, visibleWindow]);
+  }, [hours, latitude, longitude]);
 
   if (!canRenderChart) {
     return null;
   }
 
+  const GRID_LEFT = 40;
+  const GRID_RIGHT = 20;
+  const GRID_TOP = 40;
+  const CHART_HEIGHT = 320;
+  const GRID_BOTTOM = 30;
+
+  let overlayStyle = null;
+
+  if (visibleWindow && containerWidth > 0 && hours.length > 0) {
+    const contentWidth = containerWidth - GRID_LEFT - GRID_RIGHT;
+    const slotWidth = contentWidth / hours.length;
+    const start = Math.max(0, visibleWindow.start);
+    const end = Math.min(visibleWindow.end, hours.length - 1);
+
+    if (start <= end) {
+      overlayStyle = {
+        position: "absolute",
+        left: `${GRID_LEFT + start * slotWidth}px`,
+        top: `${GRID_TOP}px`,
+        width: `${(end - start + 1) * slotWidth}px`,
+        height: `${CHART_HEIGHT - GRID_TOP - GRID_BOTTOM}px`,
+        backgroundColor: "rgba(30,60,114,0.10)",
+        border: "1.5px dashed #2b4d8f",
+        pointerEvents: "none",
+        boxSizing: "border-box",
+      };
+    }
+  }
+
   return (
-    <div id="forecast-chart">
+    <div id="forecast-chart" ref={containerRef} style={{ position: "relative" }}>
       <ReactECharts
+        key={hours.length}
         option={option}
         opts={{ renderer: "svg" }}
-        style={{ height: 320, width: "100%" }}
+        style={{ height: CHART_HEIGHT, width: "100%" }}
+        notMerge={true}
       />
+      {overlayStyle && <div aria-hidden="true" style={overlayStyle} />}
     </div>
   );
 }
