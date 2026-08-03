@@ -316,7 +316,7 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
   return (
     <div id="forecast-chart" ref={containerRef} style={{ position: "relative" }}>
       <ReactECharts
-        key={hours.length}
+        key={`${hours.length}-${hours[0]?.startTime ?? ""}-${hours[hours.length - 1]?.startTime ?? ""}`}
         option={option}
         opts={{ renderer: "svg" }}
         style={{ height: CHART_HEIGHT, width: "100%" }}

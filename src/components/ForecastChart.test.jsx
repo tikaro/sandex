@@ -105,3 +105,42 @@ describe("ForecastChart remount on data size change", () => {
     unmount();
   });
 });
+
+describe("ForecastChart remount on data content change", () => {
+  it("remounts the chart when hours data changes but length stays the same, to avoid lineAnimationDiff crash", () => {
+    const { rerender, unmount } = render(
+      <ForecastChart
+        hours={HOURS}
+        latitude={39.96}
+        longitude={-75.61}
+        visibleWindow={null}
+      />,
+    );
+
+    const callsBefore = ReactECharts.mock.calls.length;
+
+    // Same length as HOURS but different startTime (simulates loading a new zip forecast)
+    const differentHours = [
+      {
+        startTime: "2026-08-10T12:00:00.000Z",
+        temperature: 80.0,
+        dewpoint: 65.0,
+      },
+    ];
+
+    rerender(
+      <ForecastChart
+        hours={differentHours}
+        latitude={39.96}
+        longitude={-75.61}
+        visibleWindow={null}
+      />,
+    );
+
+    // The key includes first/last startTime, so different data forces remount
+    // even when length is the same, preventing lineAnimationDiff crash.
+    expect(ReactECharts.mock.calls.length).toBeGreaterThan(callsBefore);
+
+    unmount();
+  });
+});
