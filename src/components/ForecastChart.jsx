@@ -23,6 +23,18 @@ function isNightHour(date, latitude, longitude) {
   return date < sunriseToday || date >= sunsetToday;
 }
 
+function formatRoundedFahrenheit(value) {
+  const maybeNumber = Array.isArray(value) ? value[value.length - 1] : value;
+  const numericValue =
+    typeof maybeNumber === "number" ? maybeNumber : Number(maybeNumber);
+
+  if (!Number.isFinite(numericValue)) {
+    return `${value}`;
+  }
+
+  return `${Math.round(numericValue)}°F`;
+}
+
 export default function ForecastChart({ hours, latitude, longitude, visibleWindow }) {
   const canRenderChart =
     typeof window !== "undefined" && typeof ResizeObserver !== "undefined";
@@ -233,6 +245,9 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
           smooth: true,
           showSymbol: false,
           data: temperatures,
+          tooltip: {
+            valueFormatter: formatRoundedFahrenheit,
+          },
           lineStyle: {
             width: 2,
             color: "#000",
@@ -251,6 +266,9 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
           smooth: true,
           showSymbol: false,
           data: dewpointSeriesData,
+          tooltip: {
+            valueFormatter: formatRoundedFahrenheit,
+          },
           lineStyle: {
             width: 2,
           },
