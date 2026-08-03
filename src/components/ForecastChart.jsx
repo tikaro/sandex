@@ -1,4 +1,4 @@
-import ReactECharts from "echarts-for-react";
+import * as echarts from "echarts";
 import { useMemo, useRef, useState, useEffect } from "react";
 import SunCalc from "suncalc";
 import calculateHumidityFromDewpoint from "../js/calculateHumidityFromDewpoint.js";
@@ -40,16 +40,9 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
     typeof window !== "undefined" && typeof ResizeObserver !== "undefined";
 
   const containerRef = useRef(null);
+  const chartRef = useRef(null);
+  const instanceRef = useRef(null);
   const [containerWidth, setContainerWidth] = useState(0);
-
-  useEffect(() => {
-    if (!canRenderChart || !containerRef.current) return;
-    const el = containerRef.current;
-    setContainerWidth(el.offsetWidth);
-    const ro = new ResizeObserver(() => setContainerWidth(el.offsetWidth));
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, [canRenderChart]);
 
   const option = useMemo(() => {
     const labels = hours.map((hour) => formatXAxisLabel(hour.startTime));    const hourDates = hours.map((hour) => new Date(hour.startTime));
@@ -285,15 +278,50 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
     };
   }, [hours, latitude, longitude]);
 
-  if (!canRenderChart) {
-    return null;
-  }
-
   const GRID_LEFT = 40;
   const GRID_RIGHT = 20;
   const GRID_TOP = 40;
   const CHART_HEIGHT = 320;
   const GRID_BOTTOM = 30;
+
+  useEffect(() => {
+    if (!canRenderChart || !chartRef.current) return;
+
+    // Dispose any existing instance and create a fresh one each time option changes.
+    // This bypasses echarts-for-react lifecycle issues that cause lineAnimationDiff crashes.
+    if (instanceRef.current) {
+      instanceRef.current.dispose();
+      instanceRef.current = null;
+    }
+
+    const instance = echarts.init(chartRef.current, null, { renderer: "svg" });
+    instanceRef.current = instance;
+    instance.setOption(option, { notMerge: true });
+
+    return () => {
+      instance.dispose();
+      instanceRef.current = null;
+    };
+  }, [canRenderChart, option]);
+
+  // Handle resize
+  useEffect(() => {
+    if (!canRenderChart || !containerRef.current) return;
+    const el = containerRef.current;
+    setContainerWidth(el.offsetWidth);
+    const ro = new ResizeObserver(() => {
+      setContainerWidth(el.offsetWidth);
+      if (instanceRef.current) {
+        instanceRef.current.resize();
+      }
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [canRenderChart]);
+
+  if (!canRenderChart) {
+    return null;
+  }
 
   let overlayStyle = null;
 
@@ -320,12 +348,9 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
 
   return (
     <div id="forecast-chart" ref={containerRef} style={{ position: "relative" }}>
-      <ReactECharts
-        key={`${hours.length}-${hours[0]?.startTime ?? ""}-${hours[hours.length - 1]?.startTime ?? ""}`}
-        option={option}
-        opts={{ renderer: "svg" }}
+      <div
+        ref={chartRef}
         style={{ height: CHART_HEIGHT, width: "100%" }}
-        notMerge={true}
       />
       {overlayStyle && <div aria-hidden="true" style={overlayStyle} />}
     </div>

@@ -1,11 +1,20 @@
 import { beforeAll, afterAll, describe, expect, it, vi } from "vitest";
 import { render } from "@testing-library/react";
-import ReactECharts from "echarts-for-react";
 import ForecastChart from "./ForecastChart";
 
-vi.mock("echarts-for-react", () => ({
-  default: vi.fn(() => null),
+const mockSetOption = vi.fn();
+const mockDispose = vi.fn();
+const mockResize = vi.fn();
+
+vi.mock("echarts", () => ({
+  init: vi.fn(() => ({
+    setOption: mockSetOption,
+    dispose: mockDispose,
+    resize: mockResize,
+  })),
 }));
+
+import * as echarts from "echarts";
 
 const HOURS = [
   {
@@ -47,6 +56,8 @@ describe("ForecastChart with empty hours", () => {
 
 describe("ForecastChart tooltip formatting", () => {
   it("rounds chart overlay values to the nearest whole degree fahrenheit", () => {
+    mockSetOption.mockClear();
+
     render(
       <ForecastChart
         hours={HOURS}
@@ -56,7 +67,8 @@ describe("ForecastChart tooltip formatting", () => {
       />,
     );
 
-    const option = ReactECharts.mock.calls[0][0].option;
+    expect(mockSetOption).toHaveBeenCalled();
+    const option = mockSetOption.mock.calls[0][0];
     const temperatureFormatter = option.series[1].tooltip.valueFormatter;
     const dewpointFormatter = option.series[2].tooltip.valueFormatter;
 
@@ -68,7 +80,10 @@ describe("ForecastChart tooltip formatting", () => {
 });
 
 describe("ForecastChart remount on data size change", () => {
-  it("remounts the chart (new ECharts instance) when hours length changes to avoid lineAnimationDiff crash", () => {
+  it("creates a new ECharts instance when hours length changes to avoid lineAnimationDiff crash", () => {
+    echarts.init.mockClear();
+    mockDispose.mockClear();
+
     const { rerender, unmount } = render(
       <ForecastChart
         hours={HOURS}
@@ -78,7 +93,7 @@ describe("ForecastChart remount on data size change", () => {
       />,
     );
 
-    const callsBefore = ReactECharts.mock.calls.length;
+    const initCallsBefore = echarts.init.mock.calls.length;
 
     const moreHours = [
       ...HOURS,
@@ -98,16 +113,18 @@ describe("ForecastChart remount on data size change", () => {
       />,
     );
 
-    // The key prop changes when hours.length changes, forcing React to unmount the
-    // old ReactECharts and mount a new one. The mock should have been called again.
-    expect(ReactECharts.mock.calls.length).toBeGreaterThan(callsBefore);
+    // When option changes (new hours), the effect re-runs: dispose old + init new
+    expect(echarts.init.mock.calls.length).toBeGreaterThan(initCallsBefore);
 
     unmount();
   });
 });
 
 describe("ForecastChart remount on data content change", () => {
-  it("remounts the chart when hours data changes but length stays the same, to avoid lineAnimationDiff crash", () => {
+  it("creates a new ECharts instance when hours data changes but length stays the same", () => {
+    echarts.init.mockClear();
+    mockDispose.mockClear();
+
     const { rerender, unmount } = render(
       <ForecastChart
         hours={HOURS}
@@ -117,7 +134,7 @@ describe("ForecastChart remount on data content change", () => {
       />,
     );
 
-    const callsBefore = ReactECharts.mock.calls.length;
+    const initCallsBefore = echarts.init.mock.calls.length;
 
     // Same length as HOURS but different startTime (simulates loading a new zip forecast)
     const differentHours = [
@@ -137,9 +154,8 @@ describe("ForecastChart remount on data content change", () => {
       />,
     );
 
-    // The key includes first/last startTime, so different data forces remount
-    // even when length is the same, preventing lineAnimationDiff crash.
-    expect(ReactECharts.mock.calls.length).toBeGreaterThan(callsBefore);
+    // Different data changes the option, so the effect re-runs: dispose old + init new
+    expect(echarts.init.mock.calls.length).toBeGreaterThan(initCallsBefore);
 
     unmount();
   });
