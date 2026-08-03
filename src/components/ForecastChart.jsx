@@ -315,10 +315,10 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
   return (
     <div id="forecast-chart">
       <ReactECharts
+        key={hours.length}
         option={option}
         opts={{ renderer: "svg" }}
         style={{ height: 320, width: "100%" }}
-        notMerge={true}
       />
     </div>
   );

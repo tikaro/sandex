@@ -48,9 +48,9 @@ describe("ForecastChart tooltip formatting", () => {
   });
 });
 
-describe("ForecastChart option replacement", () => {
-  it("passes notMerge={true} to prevent animation crashes when hour count changes", () => {
-    render(
+describe("ForecastChart remount on data size change", () => {
+  it("remounts the chart (new ECharts instance) when hours length changes to avoid lineAnimationDiff crash", () => {
+    const { rerender, unmount } = render(
       <ForecastChart
         hours={HOURS}
         latitude={39.96}
@@ -59,7 +59,30 @@ describe("ForecastChart option replacement", () => {
       />,
     );
 
-    const lastCall = ReactECharts.mock.calls[ReactECharts.mock.calls.length - 1][0];
-    expect(lastCall.notMerge).toBe(true);
+    const callsBefore = ReactECharts.mock.calls.length;
+
+    const moreHours = [
+      ...HOURS,
+      {
+        startTime: "2026-08-03T13:00:00.000Z",
+        temperature: 76.0,
+        dewpoint: 68.0,
+      },
+    ];
+
+    rerender(
+      <ForecastChart
+        hours={moreHours}
+        latitude={39.96}
+        longitude={-75.61}
+        visibleWindow={null}
+      />,
+    );
+
+    // The key prop changes when hours.length changes, forcing React to unmount the
+    // old ReactECharts and mount a new one. The mock should have been called again.
+    expect(ReactECharts.mock.calls.length).toBeGreaterThan(callsBefore);
+
+    unmount();
   });
 });
