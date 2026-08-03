@@ -19,7 +19,11 @@ let originalResizeObserver;
 
 beforeAll(() => {
   originalResizeObserver = global.ResizeObserver;
-  global.ResizeObserver = class ResizeObserver {};
+  global.ResizeObserver = class ResizeObserver {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  };
 });
 
 afterAll(() => {
@@ -38,8 +42,8 @@ describe("ForecastChart tooltip formatting", () => {
     );
 
     const option = ReactECharts.mock.calls[0][0].option;
-    const temperatureFormatter = option.series[2].tooltip.valueFormatter;
-    const dewpointFormatter = option.series[3].tooltip.valueFormatter;
+    const temperatureFormatter = option.series[1].tooltip.valueFormatter;
+    const dewpointFormatter = option.series[2].tooltip.valueFormatter;
 
     expect(temperatureFormatter(74.6)).toBe("75°F");
     expect(temperatureFormatter(74.4)).toBe("74°F");
