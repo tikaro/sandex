@@ -47,3 +47,19 @@ describe("ForecastChart tooltip formatting", () => {
     expect(dewpointFormatter(["label", 70.4])).toBe("70°F");
   });
 });
+
+describe("ForecastChart option replacement", () => {
+  it("passes notMerge={true} to prevent animation crashes when hour count changes", () => {
+    render(
+      <ForecastChart
+        hours={HOURS}
+        latitude={39.96}
+        longitude={-75.61}
+        visibleWindow={null}
+      />,
+    );
+
+    const lastCall = ReactECharts.mock.calls[ReactECharts.mock.calls.length - 1][0];
+    expect(lastCall.notMerge).toBe(true);
+  });
+});

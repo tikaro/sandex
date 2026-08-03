@@ -318,6 +318,7 @@ export default function ForecastChart({ hours, latitude, longitude, visibleWindo
         option={option}
         opts={{ renderer: "svg" }}
         style={{ height: 320, width: "100%" }}
+        notMerge={true}
       />
     </div>
   );
