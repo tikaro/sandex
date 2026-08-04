@@ -23,13 +23,13 @@ export function dewpointComfortMessage(dewpoint) {
 
 // Single source of truth for dewpoint comfort colors, shared by chart and cards.
 export const DEWPOINT_COLORS = {
-    "very-dry":    "var(--dewpoint-very-dry-color)",
-    "dry":         "var(--dewpoint-dry-color)",
-    "comfortable": "var(--dewpoint-comfortable-color)",
-    "humid":       "var(--dewpoint-humid-color)",
-    "muggy":       "var(--dewpoint-muggy-color)",
-    "oppressive":  "var(--dewpoint-oppressive-color)",
-    "miserable":   "var(--dewpoint-miserable-color)",
+    "very-dry":    "#0CF",
+    "dry":         "#0F0",
+    "comfortable": "#FFCC03",
+    "humid":       "#FE9901",
+    "muggy":       "#FF6500",
+    "oppressive":  "#FE0000",
+    "miserable":   "#820204",
 };
 
 export function dewpointColor(dewpoint, comfort = dewpointComfort(dewpoint)) {
@@ -37,6 +37,7 @@ export function dewpointColor(dewpoint, comfort = dewpointComfort(dewpoint)) {
 }
 
 // ECharts piecewise visualMap pieces derived from the same boundaries and colors.
+// ECharts cannot parse CSS custom properties (var(--...)), so hex values are used here.
 export const DEWPOINT_CHART_PIECES = [
     { lt: 50,              color: DEWPOINT_COLORS["very-dry"] },
     { gte: 50, lt: 56,     color: DEWPOINT_COLORS["dry"] },
