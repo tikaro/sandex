@@ -35,7 +35,7 @@
     "prop-types": "^15.8.1",
     "sass": "^1.101.0",
     "vite": "^7.3.6",
-    "vitest": "^4.1.9"
+    "vitest": "^4.1.11"
   },
   "readme": "ERROR: No README data found!",
   "_id": "sandex@0.0.0"
