@@ -1701,6 +1701,11 @@ for-each@^0.3.3, for-each@^0.3.5:
   dependencies:
     is-callable "^1.2.7"
 
+fsevents@2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
+  integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
+
 fsevents@~2.3.2, fsevents@~2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
@@ -2999,10 +3004,10 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-"vite@^6.0.0 || ^7.0.0 || ^8.0.0", vite@^7.3.6:
-  version "7.3.6"
-  resolved "https://registry.npmjs.org/vite/-/vite-7.3.6.tgz"
-  integrity sha512-4XP60spRGjSZFf1qYH+dJIkK2znL3zQfl9KkOV9MkkRR/3Dls0dxaBsQPTloEc5BLXWPL9vsOxopxyKoMmDueg==
+"vite@^6.0.0 || ^7.0.0 || ^8.0.0", vite@^7.3.7:
+  version "7.3.7"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-7.3.7.tgz#017a80fdce051003a4aa290dddd0b159aa769282"
+  integrity sha512-AHEzTORMbi7/7aXp7w7KZ5+DCUdSeLsJz0grY8xHpc9DHdYb0vQu6DqJfm2tOw3gDExNgPgnJTXxM6syYFHaCA==
   dependencies:
     esbuild "^0.27.0 || ^0.28.0"
     fdir "^6.5.0"
