@@ -62,7 +62,7 @@ function App() {
     parseForecastHours(DefaultForecast),
   );
   const [error, setError] = useState(null);
-  const [hourCount, setHourCount] = useState(48);
+  const [hourCount, setHourCount] = useState(72);
 
   const [visibleWindow, setVisibleWindow] = useState(null);
 
@@ -114,7 +114,6 @@ function App() {
   const hours = futureHours.slice(0, hourCount);
 
   const RANGE_OPTIONS = [
-    { label: "2 days", value: 48 },
     { label: "3 days", value: 72 },
     { label: "7 days", value: 168 },
   ];
