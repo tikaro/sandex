@@ -1,6 +1,6 @@
 import * as echarts from "echarts";
 import { useMemo, useRef, useState, useEffect } from "react";
-import SunCalc from "suncalc";
+import * as SunCalc from "suncalc";
 import calculateHumidityFromDewpoint from "../js/calculateHumidityFromDewpoint.js";
 import { hourIsSandex, temperatureIsSandex } from "../js/isSandex.js";
 import { DEWPOINT_CHART_PIECES } from "../js/dewpointComfort.js";
