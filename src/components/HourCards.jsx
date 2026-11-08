@@ -1,5 +1,5 @@
 import { useRef, useCallback, useEffect } from "react";
-import SunCalc from "suncalc";
+import * as SunCalc from "suncalc";
 import calculateHumidityFromDewpoint from "../js/calculateHumidityFromDewpoint.js";
 import { hourIsSandex } from "../js/isSandex.js";
 import { dewpointComfort, dewpointColor } from "../js/dewpointComfort.js";
